@@ -37,6 +37,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    # My Apps
+    'user',
 ]
 
 MIDDLEWARE = [
@@ -98,6 +100,9 @@ AUTH_PASSWORD_VALIDATORS = [
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
+
+# Let Django know to use the new User class
+AUTH_USER_MODEL = 'user.CustomUser'
 
 
 # Internationalization
