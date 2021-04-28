@@ -101,6 +101,9 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+# Let Django know to use the new User class
+AUTH_USER_MODEL = 'user.CustomUser'
+
 
 # Internationalization
 # https://docs.djangoproject.com/en/3.2/topics/i18n/
