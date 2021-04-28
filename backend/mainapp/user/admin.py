@@ -19,19 +19,19 @@ class CustomUserAdmin(UserAdmin):
     list_filter = ('name', 'email', 'is_staff', 'is_active',)
 
     fieldsets = (
-        (None, {'fields': ('name', 'email', 'password')}),
-        ('Profile Image', {'fields': ('profile_image')}),
-        ('Permissions', {'fields': ('is_staff', 'is_active')}),
+        (None, {'fields': ('name', 'email', 'password',)}),
+        ('Profile Image', {'fields': ('profile_image',)}),
+        ('Permissions', {'fields': ('is_staff', 'is_active',)}),
     )
     add_fieldsets = (
         (None, {
             'classes': ('wide',),
-            'fields': ('name', 'email', 'password1', 'password2', 'is_staff', 'is_active')
+            'fields': ('name', 'email', 'password1', 'password2', 'is_staff', 'is_active',)
         }),
     )
 
     readonly_fields = ('uuid', 'last_login', 'date_joined', 'password_changed',
-                       'password_reset_token', 'password_reset_expires')
+                       'password_reset_token', 'password_reset_expires',)
 
     search_fields = ('email', 'email',)
     ordering = ('email', 'name',)
