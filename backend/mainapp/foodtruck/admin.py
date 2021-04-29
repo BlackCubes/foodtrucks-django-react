@@ -45,7 +45,7 @@ class TruckAdmin(admin.ModelAdmin):
 
     fieldsets = (
         (None, {'fields': ('name', 'slug', 'info',)}),
-        ('Contact': {'fields': ('phone_number', 'email', 'website',)}),
+        ('Contact', {'fields': ('phone_number', 'email', 'website',)}),
     )
 
     readonly_fields = ('uuid', 'created_at', 'updated_at',)
