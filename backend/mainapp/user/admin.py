@@ -7,6 +7,20 @@ from .models import CustomUser
 # Register your models here.
 
 
+# REVIEW INLINE
+class ReviewInline(admin.TabularInline):
+    """
+    TabularInline for Review. Fieldsets: review. Read Only: created_at.
+    """
+    model = 'review.Review'
+
+    fieldsets = (
+        (None, {'fields': ('review',)}),
+    )
+    readonly_fields = ('created_at',)
+
+
+# USER ADMIN
 class CustomUserAdmin(UserAdmin):
     """
     Subclassing UserAdmin to use the forms of CustomUserCreationForm and CustomUserChangeForm
@@ -35,6 +49,8 @@ class CustomUserAdmin(UserAdmin):
 
     search_fields = ('email', 'email',)
     ordering = ('email', 'name',)
+
+    inline = (ReviewInline,)
 
 
 admin.site.register(CustomUser, CustomUserAdmin)
