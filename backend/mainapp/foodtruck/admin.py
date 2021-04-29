@@ -39,7 +39,7 @@ class Truck_ImageInline(admin.TabularInline):
 # TRUCK ADMIN
 class TruckAdmin(admin.ModelAdmin):
     """
-    Admin Form for Truck. List Filter: name and email. Fieldsets: name, slug, info, phone_number, email, and website. Read Only: uuid, created_at, and updated_at. Search Fields: name and email. Inlines: Truck_ImageInline and ProductInline
+    Admin Form for Truck. List Filter: name and email. Fieldsets: name, slug, info, phone_number, email, and website. Read Only: uuid, created_at, and updated_at. Search Fields: name and email. Inlines: Truck_ImageInline and ProductInline.
     """
     list_filter = ('name', 'email',)
 
@@ -53,6 +53,20 @@ class TruckAdmin(admin.ModelAdmin):
     search_fields = ('name', 'email',)
 
     inlines = (Truck_ImageInline, ProductInline,)
+
+
+# LIKE INLINE
+class LikeInline(admin.TabularInline):
+    """
+    TabularInline for Like. Fieldsets: like. Read Only: created_at and emoji.
+    """
+    model = 'social.Like'
+
+    fieldsets = (
+        (None, {'fields': ('like',)}),
+    )
+
+    readonly_fields = ('created_at', 'emoji')
 
 
 # PRODUCT ADMIN
@@ -72,6 +86,8 @@ class ProductAdmin(admin.ModelAdmin):
     readonly_fields = ('uuid', 'created_at', 'updated_at',)
 
     search_fields = ('name',)
+
+    inline = (LikeInline,)
 
 
 admin.site.register(Truck, TruckAdmin)
