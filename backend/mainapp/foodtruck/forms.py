@@ -15,7 +15,7 @@ class TruckModalForm(ModelForm):
 
 
 # TRUCK_IMAGE MODAL FORM
-class TruckImageModalForm(ModalForm):
+class TruckImageModalForm(ModelForm):
     """
     Modal Form class for Truck_Image with field of image.
     """
@@ -25,7 +25,7 @@ class TruckImageModalForm(ModalForm):
 
 
 # PRODUCT MODAL FORM
-class ProductModalForm(ModalForm):
+class ProductModalForm(ModelForm):
     """
     Modal Form class for Product with fields of name, info, image, price, quantity, is_available, and truck.
     """
