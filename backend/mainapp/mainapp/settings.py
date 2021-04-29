@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     # Installed Apps
     'phonenumber_field',
     # My Apps
+    'event',
     'foodtruck',
     'review',
     'social',
