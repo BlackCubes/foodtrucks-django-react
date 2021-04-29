@@ -1,10 +1,10 @@
 from django.forms import ModelForm
 
-from .modals import Emoji, Like
+from .models import Emoji, Like
 
 
 # EMOJI MODAL FORM
-class EmojiModalForm(ModalForm):
+class EmojiModalForm(ModelForm):
     """
     Modal Form class for Emoji with fields of emoji and name
     """
@@ -14,7 +14,7 @@ class EmojiModalForm(ModalForm):
 
 
 # LIKE MODAL FORM
-class LikeModalForm(ModalForm):
+class LikeModalForm(ModelForm):
     """
     Modal Form class for Like with field of like
     """
