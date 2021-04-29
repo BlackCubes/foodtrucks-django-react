@@ -20,7 +20,7 @@ class Emoji(models.Model):
 
 
 # LIKES
-class Like(models.model):
+class Like(models.Model):
     uuid = models.UUIDField(unique=True, default=uuid.uuid4, editable=False)
     like = models.IntegerField(default=0)
     created_at = models.DateTimeField(
