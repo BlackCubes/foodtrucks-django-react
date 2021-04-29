@@ -14,7 +14,7 @@ class LikeInline(admin.TabularInline):
     model = Like
 
     fieldsets = (
-        (None, {'fields': ('like',)})
+        (None, {'fields': ('like',)}),
     )
 
     readonly_fields = ('created_at', 'product',)
