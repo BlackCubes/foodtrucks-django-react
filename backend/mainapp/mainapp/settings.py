@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'phonenumber_field',
     # My Apps
     'foodtruck',
+    'review',
     'social',
     'user',
 ]
