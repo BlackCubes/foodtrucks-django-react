@@ -8,6 +8,9 @@ from .models import Product, Truck, Truck_Image
 
 # PRODUCT INLINE
 class ProductInline(admin.TabularInline):
+    """
+    TabularInline for Product. Fieldsets: name, slug, info, image, price, quantity, and is_available. Read Only: created_at.
+    """
     model = Product
 
     fieldsets = (
@@ -21,6 +24,9 @@ class ProductInline(admin.TabularInline):
 
 # TRUCK_IMAGE INLINE
 class Truck_ImageInline(admin.TabularInline):
+    """
+    TabularInline for Truck_Image. Fieldsets: image and is_profile_image. Read Only: created_at and updated_at.
+    """
     model = Truck_Image
 
     fieldsets = (
@@ -32,12 +38,14 @@ class Truck_ImageInline(admin.TabularInline):
 
 # TRUCK ADMIN
 class TruckAdmin(admin.ModelAdmin):
-    """"""
+    """
+    Admin Form for Truck. List Filter: name and email. Fieldsets: name, slug, info, phone_number, email, and website. Read Only: uuid, created_at, and updated_at. Search Fields: name and email. Inlines: Truck_ImageInline and ProductInline
+    """
     list_filter = ('name', 'email',)
 
     fieldsets = (
-        (None, {'fields': ('name', 'slug', 'info',
-         'phone_number', 'email', 'website')}),
+        (None, {'fields': ('name', 'slug', 'info',)}),
+        ('Contact': {'fields': ('phone_number', 'email', 'website',)}),
     )
 
     readonly_fields = ('uuid', 'created_at', 'updated_at',)
@@ -49,7 +57,9 @@ class TruckAdmin(admin.ModelAdmin):
 
 # PRODUCT ADMIN
 class ProductAdmin(admin.ModelAdmin):
-    """"""
+    """
+    Admin Form for Product. List Filter: name, price, and is_available. Fieldsets: name, slug, info, image, price, quantity, is_available, and truck. Read Only: uuid, created_at, and updated_at. Search Fields: name.
+    """
     list_filter = ('name', 'price', 'is_available',)
 
     fieldsets = (
