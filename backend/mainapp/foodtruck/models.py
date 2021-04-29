@@ -19,7 +19,7 @@ class Truck(models.Model):
         _('truck slug'), max_length=100, null=True, blank=True)
     info = models.TextField(_('truck info'))
     phone_number = PhoneNumberField(_('truck phone number'))
-    email = models.EmailField(_('truck email'))
+    email = models.EmailField(_('truck email'), unique=True)
     website = models.URLField(_('truck website'), blank=True)
     created_at = models.DateTimeField(
         _('truck created at'), auto_now_add=True, blank=True, null=True)
