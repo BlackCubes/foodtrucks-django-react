@@ -7,6 +7,9 @@ import uuid
 
 # EMOJIS
 class Emoji(models.Model):
+    """
+    Emoji model with fields of uuid, emoji, name, created_at, and updated_at.
+    """
     uuid = models.UUIDField(unique=True, default=uuid.uuid4, editable=False)
     emoji = models.TextField()
     name = models.TextField(_('emoji name'))
@@ -21,6 +24,9 @@ class Emoji(models.Model):
 
 # LIKES
 class Like(models.Model):
+    """
+    Like model with fields of uuid, like, created_at, updated_at, emoji, and product. ForeignKey: Emoji and Product.
+    """
     uuid = models.UUIDField(unique=True, default=uuid.uuid4, editable=False)
     like = models.IntegerField(default=0)
     created_at = models.DateTimeField(
