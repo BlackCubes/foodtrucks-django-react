@@ -15,4 +15,4 @@ class Event(models.Model):
     start_time = models.TimeField(_('start time'))
     end_time = models.TimeField(_('end time'))
     geo_location = models.PointField(_('geo location'))
-    foodtruck = models.ManyToManyField('foodtruck.Truck')
+    truck = models.ManyToManyField('foodtruck.Truck')
