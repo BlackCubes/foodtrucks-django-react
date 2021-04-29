@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from .forms import ProductModalForm, TruckModalForm
+from .forms import ProductModelForm, TruckModelForm
 from .models import Product, Truck, Truck_Image
 
 # Register your models here.
