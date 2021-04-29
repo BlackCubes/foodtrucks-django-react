@@ -69,6 +69,20 @@ class LikeInline(admin.TabularInline):
     readonly_fields = ('created_at', 'emoji')
 
 
+# REVIEW INLINE
+class ReviewInline(admin.TabularInline):
+    """
+    TabularInline for Review. Fieldsets: review. Read Only: created_at.
+    """
+    model = 'review.Review'
+
+    fieldsets = (
+        (None, {'fields': ('review',)}),
+    )
+
+    readonly_fields = ('created_at',)
+
+
 # PRODUCT ADMIN
 class ProductAdmin(admin.ModelAdmin):
     """
@@ -87,7 +101,7 @@ class ProductAdmin(admin.ModelAdmin):
 
     search_fields = ('name',)
 
-    inline = (LikeInline,)
+    inline = (LikeInline, ReviewInline,)
 
 
 admin.site.register(Truck, TruckAdmin)
