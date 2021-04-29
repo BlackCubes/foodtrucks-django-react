@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from .forms import EmojiModalForm, LikeModalForm
+from .forms import EmojiModelForm, LikeModelForm
 from .models import Emoji, Like
 
 # Register your models here.
