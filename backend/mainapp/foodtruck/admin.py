@@ -1,3 +1,68 @@
 from django.contrib import admin
 
+from .forms import ProductModalForm, TruckModalForm
+from .models import Product, Truck, Truck_Image
+
 # Register your models here.
+
+
+# PRODUCT INLINE
+class ProductInline(admin.TabularInline):
+    model = Product
+
+    fieldsets = (
+        (None, {'fields': ('name', 'slug', 'info',)}),
+        ('Product Image', {'fields': ('image',)}),
+        ('Miscellaneous', {'fields': ('price', 'quantity', 'is_available',)}),
+    )
+
+    readonly_fields = ('created_at',)
+
+
+# TRUCK_IMAGE INLINE
+class Truck_ImageInline(admin.TabularInline):
+    model = Truck_Image
+
+    fieldsets = (
+        (None, {'fields': ('image', 'is_profile_image',)}),
+    )
+
+    readonly_fields = ('created_at', 'updated_at',)
+
+
+# TRUCK ADMIN
+class TruckAdmin(admin.ModelAdmin):
+    """"""
+    list_filter = ('name', 'email',)
+
+    fieldsets = (
+        (None, {'fields': ('name', 'slug', 'info',
+         'phone_number', 'email', 'website')}),
+    )
+
+    readonly_fields = ('uuid', 'created_at', 'updated_at',)
+
+    search_fields = ('name', 'email',)
+
+    inlines = (Truck_ImageInline, ProductInline,)
+
+
+# PRODUCT ADMIN
+class ProductAdmin(admin.ModelAdmin):
+    """"""
+    list_filter = ('name', 'price', 'is_available',)
+
+    fieldsets = (
+        (None, {'fields': ('name', 'slug', 'info',)}),
+        ('Product Image', {'fields': ('image',)}),
+        ('Miscellaneous', {'fields': ('price', 'quantity', 'is_available',)}),
+        ('Truck Ownership', {'fields': ('truck',)}),
+    )
+
+    readonly_fields = ('uuid', 'created_at', 'updated_at',)
+
+    search_fields = ('name',)
+
+
+admin.site.register(Truck, TruckAdmin)
+admin.site.register(Product, ProductAdmin)
