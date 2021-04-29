@@ -7,7 +7,9 @@ from .models import Event
 
 # EVENT ADMIN
 class EventAdmin(admin.ModelAdmin):
-    """"""
+    """
+    Admin Form for Event. List Filter: date. Fieldsets: date, start_time, end_time, geo_location, and truck. Read Only: uuid. Search Fields: date.
+    """
     list_filter = ('date',)
 
     fieldsets = (
