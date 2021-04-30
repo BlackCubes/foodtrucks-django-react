@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     # Installed Apps
     'phonenumber_field',
+    'rest_framework',
     # My Apps
     'event',
     'foodtruck',
