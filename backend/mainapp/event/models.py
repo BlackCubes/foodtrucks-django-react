@@ -2,8 +2,6 @@ from django.contrib.gis.db import models
 from django.utils.translation import ugettext_lazy as _
 import uuid
 
-# Create your models here.
-
 
 # EVENTS
 class Event(models.Model):
@@ -15,5 +13,5 @@ class Event(models.Model):
     start_time = models.TimeField(_('start time'))
     end_time = models.TimeField(_('end time'))
     # DO GEO!!!!!!!!
-    geo_location = models.PointField(_('geo location'))
+    geo_location = models.PointField()
     truck = models.ManyToManyField('foodtruck.Truck')
