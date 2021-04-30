@@ -17,7 +17,7 @@ class TruckSerializer(serializers.HyperlinkedModelSerializer):
 
 
 # TRUCK_IMAGE SERIALIZER
-class Truck_ImageSerializer(serializers.HyperlinkedModelSerializer):
+class TruckImageSerializer(serializers.HyperlinkedModelSerializer):
     """
     Serializer on Truck_Image model.
 
