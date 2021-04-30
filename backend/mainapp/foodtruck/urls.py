@@ -1,6 +1,6 @@
 from rest_framework import viewsets
 
-from .models import Product, Truck, Truck_Image
+from .models import Product, Truck, TruckImage
 from .serializers import ProductSerializer, TruckSerializer, TruckImageSerializer
 
 
@@ -15,11 +15,11 @@ class APITruckViewSet(viewsets.ModelViewSet):
     serializer_class = TruckSerializer
 
 
-# TRUCK_IMAGE VIEWS
+# TRUCKIMAGE VIEWS
 # Find out about how to implement a MANY-TO-ONE situation
 class APITruckImageViewSet(viewsets.ModelViewSet):
     """
-    ModelViewSet for Truck_Image.
+    ModelViewSet for TruckImage.
 
     Request Type: GET and POST.
     """
