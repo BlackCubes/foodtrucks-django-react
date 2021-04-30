@@ -1,7 +1,7 @@
 from rest_framework import viewsets
 
 from .models import Product, Truck, Truck_Image
-from .serializers import ProductSerializer, TruckSerializer, Truck_ImageSerializer
+from .serializers import ProductSerializer, TruckSerializer, TruckImageSerializer
 
 
 # TRUCK VIEWS
@@ -17,7 +17,7 @@ class APITruckViewSet(viewsets.ModelViewSet):
 
 # TRUCK_IMAGE VIEWS
 # Find out about how to implement a MANY-TO-ONE situation
-class APITruck_ImageViewSet(viewsets.ModelViewSet):
+class APITruckImageViewSet(viewsets.ModelViewSet):
     """
     ModelViewSet for Truck_Image.
 
