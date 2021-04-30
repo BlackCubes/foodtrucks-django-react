@@ -4,6 +4,9 @@ import string
 
 
 def random_string_generator(size=10, chars=string.ascii_lowercase + string.digits):
+    """
+    Generates a random string.
+    """
     return ''.join(random.choice(chars) for _ in range(size))
 
 
@@ -27,3 +30,11 @@ def unique_slug_generator(instance, new_slug=None):
         return unique_slug_generator(instance, new_slug=new_slug)
 
     return slug
+
+
+def slug_generator(sender, instance, *args, **kwargs):
+    """
+    Converts the string into a slug if it is not present.
+    """
+    if not instance.slug:
+        instance.slug = unique_slug_generator(instance)
