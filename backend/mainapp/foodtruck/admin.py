@@ -8,7 +8,11 @@ from .models import Product, Truck, TruckImage
 # PRODUCT INLINE
 class ProductInline(admin.TabularInline):
     """
-    TabularInline for Product. Fieldsets: name, slug, info, image, price, quantity, and is_available. Read Only: created_at.
+    TabularInline for Product.
+
+    Fieldsets: name, slug, info, image, price, quantity, and is_available.
+
+    Read Only: created_at.
     """
     model = Product
 
@@ -24,7 +28,11 @@ class ProductInline(admin.TabularInline):
 # TRUCKIMAGE INLINE
 class TruckImageInline(admin.TabularInline):
     """
-    TabularInline for TruckImage. Fieldsets: image and is_profile_image. Read Only: created_at and updated_at.
+    TabularInline for TruckImage.
+
+    Fieldsets: image and is_profile_image.
+
+    Read Only: created_at and updated_at.
     """
     model = TruckImage
 
@@ -38,7 +46,17 @@ class TruckImageInline(admin.TabularInline):
 # TRUCK ADMIN
 class TruckAdmin(admin.ModelAdmin):
     """
-    Admin Form for Truck. List Filter: name and email. Fieldsets: name, slug, info, phone_number, email, and website. Read Only: uuid, created_at, and updated_at. Search Fields: name and email. Inlines: TruckImageInline and ProductInline.
+    Admin Form for Truck.
+
+    List Filter: name and email.
+
+    Fieldsets: name, slug, info, phone_number, email, and website.
+
+    Read Only: uuid, created_at, and updated_at.
+
+    Search Fields: name and email.
+
+    Inlines: TruckImageInline and ProductInline.
     """
     list_filter = ('name', 'email',)
 
@@ -57,7 +75,11 @@ class TruckAdmin(admin.ModelAdmin):
 # LIKE INLINE
 class LikeInline(admin.TabularInline):
     """
-    TabularInline for Like. Fieldsets: like. Read Only: created_at and emoji.
+    TabularInline for Like.
+
+    Fieldsets: like.
+
+    Read Only: created_at and emoji.
     """
     model = 'social.Like'
 
@@ -71,7 +93,11 @@ class LikeInline(admin.TabularInline):
 # REVIEW INLINE
 class ReviewInline(admin.TabularInline):
     """
-    TabularInline for Review. Fieldsets: review. Read Only: created_at.
+    TabularInline for Review.
+
+    Fieldsets: review.
+
+    Read Only: created_at.
     """
     model = 'review.Review'
 
@@ -85,7 +111,15 @@ class ReviewInline(admin.TabularInline):
 # PRODUCT ADMIN
 class ProductAdmin(admin.ModelAdmin):
     """
-    Admin Form for Product. List Filter: name, price, and is_available. Fieldsets: name, slug, info, image, price, quantity, is_available, and truck. Read Only: uuid, created_at, and updated_at. Search Fields: name.
+    Admin Form for Product.
+
+    List Filter: name, price, and is_available.
+
+    Fieldsets: name, slug, info, image, price, quantity, is_available, and truck.
+
+    Read Only: uuid, created_at, and updated_at.
+
+    Search Fields: name.
     """
     list_filter = ('name', 'price', 'is_available',)
 
