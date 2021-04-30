@@ -31,9 +31,9 @@ class Truck(models.Model):
 
 
 # TRUCK IMAGES
-class Truck_Image(models.Model):
+class TruckImage(models.Model):
     """
-    Truck_Image model with fields of uuid, image, is_profile_image, created_at, updated_at, and truck. ForeignKey=Truck.
+    TruckImage model with fields of uuid, image, is_profile_image, created_at, updated_at, and truck. ForeignKey=Truck.
     """
     uuid = models.UUIDField(unique=True, default=uuid.uuid4, editable=False)
     image = models.ImageField(upload_to='images/truck')
