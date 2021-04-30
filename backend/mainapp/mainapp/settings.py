@@ -135,6 +135,3 @@ STATIC_URL = '/static/'
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-
-# GDAL PATH FOR WINDOWS MACHINE
-GDAL_LIBRARY_PATH = r'C:\OSGeo4W64\bin\gdal301'
