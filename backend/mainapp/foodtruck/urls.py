@@ -7,9 +7,9 @@ router = routers.DefaultRouter()
 
 
 # ROUTE THE PATHS AND VIEWS
-router.register(r'foodtrucks', views.TruckSerializer)
-router.register(r'foodtrucks/images', views.TruckImageSerializer)
-router.register(r'foodtrucks/products', views.ProductSerializer)
+router.register(r'', views.TruckSerializer)
+router.register(r'images', views.TruckImageSerializer)
+router.register(r'products', views.ProductSerializer)
 
 
 # WIRE UP FOODTRUCK API USING AUTOMATIC URL ROUTING
