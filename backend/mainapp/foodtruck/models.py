@@ -49,7 +49,8 @@ class TruckImage(models.Model):
 # PRODUCTS
 class Product(models.Model):
     """
-    Product model with fields of uuid, name, slug, info, image, price, quantity, is_available, created_at, updated_at, and truck. ForeignKey=Truck.
+    Product model with fields of uuid, name, slug, info, image, price, quantity, is_available,
+    created_at, updated_at, and truck. ForeignKey=Truck.
     """
     uuid = models.UUIDField(unique=True, default=uuid.uuid4, editable=False)
     name = models.CharField(_('product name'), max_length=182)
