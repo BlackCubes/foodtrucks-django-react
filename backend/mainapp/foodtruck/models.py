@@ -1,10 +1,11 @@
 import uuid
 from django.db import models
+from django.db.models.signals import pre_save
 from django.template.defaultfilters import slugify
 from django.utils.translation import ugettext_lazy as _
 from phonenumber_field.modelfields import PhoneNumberField
+
 from mainapp.utils import slug_generator
-from django.db.models.signals import pre_save
 
 
 # TRUCKS
