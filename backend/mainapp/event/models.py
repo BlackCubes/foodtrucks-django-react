@@ -6,7 +6,7 @@ import uuid
 # EVENTS
 class Event(models.Model):
     """
-    Event model with fields of uuid, date, start_time, end_time, geo_location, and foodtruck. ForeignKey: Truck.
+    Event model with fields of uuid, date, start_time, end_time, and foodtruck. ForeignKey: Truck.
     """
     uuid = models.UUIDField(unique=True, default=uuid.uuid4, editable=True)
     date = models.DateField(_('event date'))
