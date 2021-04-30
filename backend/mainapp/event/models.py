@@ -1,4 +1,4 @@
-from django.contrib.gis.db import models
+from django.db import models
 from django.utils.translation import ugettext_lazy as _
 import uuid
 
@@ -12,6 +12,4 @@ class Event(models.Model):
     date = models.DateField(_('event date'))
     start_time = models.TimeField(_('start time'))
     end_time = models.TimeField(_('end time'))
-    # DO GEO!!!!!!!!
-    geo_location = models.PointField()
     truck = models.ManyToManyField('foodtruck.Truck')
