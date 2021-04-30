@@ -13,6 +13,6 @@ router.register(r'products', views.APIProductViewSet)
 
 
 # WIRE UP FOODTRUCK API USING AUTOMATIC URL ROUTING
-urlpatters = [
+urlpatterns = [
     path('', include('router.urls')),
 ]
