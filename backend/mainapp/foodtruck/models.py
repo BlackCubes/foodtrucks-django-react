@@ -11,7 +11,8 @@ from mainapp.utils import slug_generator
 # TRUCKS
 class Truck(models.Model):
     """
-    Truck model with fields of uuid, name, slug, info, phone_number, email, website, created_at, and updated_at.
+    Truck model with fields of uuid, name, slug, info, phone_number, email, website, created_at,
+    and updated_at.
     """
     uuid = models.UUIDField(unique=True, default=uuid.uuid4, editable=False)
     name = models.CharField(_('truck name'), max_length=100, unique=True)
@@ -33,7 +34,10 @@ class Truck(models.Model):
 # TRUCK IMAGES
 class TruckImage(models.Model):
     """
-    TruckImage model with fields of uuid, image, is_profile_image, created_at, updated_at, and truck. ForeignKey=Truck.
+    TruckImage model with fields of uuid, image, is_profile_image, created_at, updated_at, and
+    truck.
+
+    ForeignKey=Truck.
     """
     uuid = models.UUIDField(unique=True, default=uuid.uuid4, editable=False)
     image = models.ImageField(upload_to='images/truck')
@@ -50,7 +54,9 @@ class TruckImage(models.Model):
 class Product(models.Model):
     """
     Product model with fields of uuid, name, slug, info, image, price, quantity, is_available,
-    created_at, updated_at, and truck. ForeignKey=Truck.
+    created_at, updated_at, and truck.
+
+    ForeignKey=Truck.
     """
     uuid = models.UUIDField(unique=True, default=uuid.uuid4, editable=False)
     name = models.CharField(_('product name'), max_length=182)
