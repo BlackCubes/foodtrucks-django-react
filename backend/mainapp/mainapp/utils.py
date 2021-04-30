@@ -12,14 +12,14 @@ def random_string_generator(size=10, chars=string.ascii_lowercase + string.digit
 
 def unique_slug_generator(instance, new_slug=None):
     """
-    Assumes your instance has a model with a slug field and a title character (char) field.
+    Assumes your instance has a model with a slug field and a name character (char) field.
 
     Returns: unique_slug_generator if the slug query exists, or the newly created slug that has been slugify.
     """
     if new_slug is not None:
         slug = new_slug
     else:
-        slug = slugify(instance.title)
+        slug = slugify(instance.name)
 
     Klass = instance.__class__
     qs_exists = Klass.objects.filter(slug=slug).exists()
