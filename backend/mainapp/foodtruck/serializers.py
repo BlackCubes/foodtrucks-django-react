@@ -39,4 +39,4 @@ class ProductSerializer(serializers.HyperlinkedModelSerializer):
         model = Product
         # CHECK PROPER USER OF MANY-TO-ONE OUTPUT
         fields = ('uuid', 'name', 'slug', 'info', 'image',
-                  'price', 'quantity', 'is_available', 'truck')
+                  'price', 'quantity', 'is_available', 'truck',)
