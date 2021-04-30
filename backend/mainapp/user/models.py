@@ -13,7 +13,7 @@ class CustomUser(AbstractUser):
     username = None
     first_name = None
     last_name = None
-    name = models.CharField(_('name'), max_length=70)
+    name = models.CharField(_('name'), max_length=70, default='Casey Dublin')
     email = models.EmailField(_('email address'), unique=True)
     profile_image = models.ImageField(upload_to='images/user/')
     password_changed = models.DateTimeField(
