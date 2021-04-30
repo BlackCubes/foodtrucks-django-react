@@ -1,6 +1,6 @@
 from rest_framework import serializers
 
-from .models import Product, Truck_Image, Truck
+from .models import Product, TruckImage, Truck
 
 
 # TRUCK SERIALIZER
@@ -16,15 +16,15 @@ class TruckSerializer(serializers.HyperlinkedModelSerializer):
                   'phone_number', 'email', 'website',)
 
 
-# TRUCK_IMAGE SERIALIZER
+# TRUCKIMAGE SERIALIZER
 class TruckImageSerializer(serializers.HyperlinkedModelSerializer):
     """
-    Serializer on Truck_Image model.
+    Serializer on TruckImage model.
 
     Fields: uuid, image, is_profile_image.
     """
     class Meta:
-        model = Truck_Image
+        model = TruckImage
         fields = ('uuid', 'image', 'is_profile_image',)
 
 
