@@ -1,7 +1,6 @@
 from django.contrib import admin
 
-from .forms import ProductModelForm, TruckModelForm
-from .models import Product, Truck, Truck_Image
+from .models import Product, Truck, TruckImage
 
 # Register your models here.
 
@@ -22,12 +21,12 @@ class ProductInline(admin.TabularInline):
     readonly_fields = ('created_at',)
 
 
-# TRUCK_IMAGE INLINE
-class Truck_ImageInline(admin.TabularInline):
+# TRUCKIMAGE INLINE
+class TruckImageInline(admin.TabularInline):
     """
-    TabularInline for Truck_Image. Fieldsets: image and is_profile_image. Read Only: created_at and updated_at.
+    TabularInline for TruckImage. Fieldsets: image and is_profile_image. Read Only: created_at and updated_at.
     """
-    model = Truck_Image
+    model = TruckImage
 
     fieldsets = (
         (None, {'fields': ('image', 'is_profile_image',)}),
@@ -39,7 +38,7 @@ class Truck_ImageInline(admin.TabularInline):
 # TRUCK ADMIN
 class TruckAdmin(admin.ModelAdmin):
     """
-    Admin Form for Truck. List Filter: name and email. Fieldsets: name, slug, info, phone_number, email, and website. Read Only: uuid, created_at, and updated_at. Search Fields: name and email. Inlines: Truck_ImageInline and ProductInline.
+    Admin Form for Truck. List Filter: name and email. Fieldsets: name, slug, info, phone_number, email, and website. Read Only: uuid, created_at, and updated_at. Search Fields: name and email. Inlines: TruckImageInline and ProductInline.
     """
     list_filter = ('name', 'email',)
 
@@ -52,7 +51,7 @@ class TruckAdmin(admin.ModelAdmin):
 
     search_fields = ('name', 'email',)
 
-    inlines = (Truck_ImageInline, ProductInline,)
+    inlines = (TruckImageInline, ProductInline,)
 
 
 # LIKE INLINE
