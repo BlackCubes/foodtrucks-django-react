@@ -5,3 +5,4 @@ local_settings.py
 /.vscode
 .vscode
 db.sqlite3
+**/migrations/*
