@@ -18,7 +18,7 @@ class EventAdmin(admin.ModelAdmin):
         ('Truck', {'fields': ('truck',)}),
     )
 
-    readonly_fields = ('uuid,')
+    readonly_fields = ('uuid',)
 
     search_fields = ('date',)
 
