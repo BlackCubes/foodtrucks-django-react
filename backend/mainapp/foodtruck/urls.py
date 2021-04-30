@@ -24,7 +24,7 @@ class APITruckImageViewSet(viewsets.ModelViewSet):
     Request Type: GET and POST.
     """
     queryset = Truck_Image.objects.all().order_by('is_profile_image')
-    serializer_class = Truck_ImageSerializer
+    serializer_class = TruckImageSerializer
 
 
 # PRODUCT VIEWS
