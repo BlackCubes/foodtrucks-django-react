@@ -4,11 +4,11 @@ from django.utils.translation import ugettext_lazy as _
 from phonenumber_field.modelfields import PhoneNumberField
 import uuid
 
-# Create your models here.
+from mainapp.utils import slug_generator
+from django.db.models.signals import pre_save
+
 
 # TRUCKS
-
-
 class Truck(models.Model):
     """
     Truck model with fields of uuid, name, slug, info, phone_number, email, website, created_at, and updated_at.
@@ -28,7 +28,6 @@ class Truck(models.Model):
 
     def __str__(self):
         return self.name
-       # SLUGGGG!!!!!
 
 
 # TRUCK IMAGES
@@ -54,7 +53,6 @@ class Product(models.Model):
     """
     uuid = models.UUIDField(unique=True, default=uuid.uuid4, editable=False)
     name = models.CharField(_('product name'), max_length=182)
-    # SLUGGGG!!!!
     slug = models.SlugField(
         _('product slug'), max_length=182, null=True, blank=True)
     info = models.CharField(_('product info'), max_length=183)
@@ -71,3 +69,8 @@ class Product(models.Model):
 
     def __str__(self):
         return self.name
+
+
+# Using pre-save signals with slug_generator to create the slug
+pre_save.connect(slug_generator, sender=Truck)
+pre_save.connect(slug_generator, sender=Product)
