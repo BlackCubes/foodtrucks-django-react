@@ -1,18 +1,14 @@
-from django.urls import include, path
-from rest_framework import routers
+from django.urls import path
 
 from . import views
 
-router = routers.DefaultRouter()
 
-
-# ROUTE THE PATHS AND VIEWS
-router.register(r'products', views.APIProductViewSet)
-router.register(r'images', views.APITruckImageViewSet)
-router.register(r'', views.APITruckViewSet)
-
-
-# WIRE UP FOODTRUCK API USING AUTOMATIC URL ROUTING
+# WIRE UP FOODTRUCK
 urlpatterns = [
-    path('', include(router.urls)),
+    path('products/', views.ProductListCreateAPIView.as_view()),
+    path('products/<uuid:uuid>', views.ProductDetailsAPIView.as_view()),
+    path('images/', views.TruckImageListCreateAPIView.as_view()),
+    path('images/<uuid:uuid>', views.TruckImageDetailsAPIView.as_view()),
+    path('', views.ProductListCreateAPIView.as_view()),
+    path('<uuid:uuid>', views.ProductDetailsAPIView.as_view()),
 ]
