@@ -1,4 +1,4 @@
-from rest_framework import viewsets, generics
+from rest_framework import generics
 
 from .models import Product, Truck, TruckImage
 from .serializers import ProductSerializer, TruckSerializer, TruckImageSerializer
