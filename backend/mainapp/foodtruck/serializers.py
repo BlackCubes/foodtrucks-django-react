@@ -36,6 +36,9 @@ class TruckSerializer(serializers.ModelSerializer):
 
     Fields: uuid, name, slug, info, phone_number, email, website.
     """
+    products = ProductSerializer(many=True, read_only=True)
+    images = TruckImageSerializer(many=True, read_only=True)
+
     class Meta:
         model = Truck
         fields = ('uuid', 'name', 'slug', 'info',
