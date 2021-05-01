@@ -46,7 +46,8 @@ class TruckImage(models.Model):
         _('truck image created at'), auto_now_add=True, blank=True, null=True)
     updated_at = models.DateTimeField(
         _('truck image updated at'), auto_now=True, blank=True, null=True)
-    truck = models.ForeignKey(Truck, on_delete=models.CASCADE)
+    truck = models.ForeignKey(
+        Truck, related_name='images', on_delete=models.CASCADE)
 
 
 # PRODUCTS
@@ -71,7 +72,8 @@ class Product(models.Model):
         _('product created at'), auto_now_add=True, blank=True, null=True)
     updated_at = models.DateTimeField(
         _('product updated at'), auto_now=True, blank=True, null=True)
-    truck = models.ForeignKey(Truck, on_delete=models.CASCADE)
+    truck = models.ForeignKey(
+        Truck, related_name='products', on_delete=models.CASCADE)
 
     def __str__(self):
         return self.name
