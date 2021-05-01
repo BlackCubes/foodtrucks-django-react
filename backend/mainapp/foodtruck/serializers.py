@@ -8,6 +8,8 @@ class ProductSerializer(serializers.ModelSerializer):
     """
     Serializer on Product model.
 
+    LookUp Field: uuid.
+
     Fields: uuid, name, slug, info, image, price, quantity, is_available, and truck.
     """
     truck = serializers.CharField(source='truck.uuid')
@@ -25,12 +27,15 @@ class TruckImageSerializer(serializers.ModelSerializer):
     """
     Serializer on TruckImage model.
 
+    LookUp Field: uuid.
+
     Fields: uuid, image, is_profile_image.
     """
     truck = serializers.CharField(source='truck.uuid')
 
     class Meta:
         model = TruckImage
+        lookup_field = 'uuid'
         fields = ('uuid', 'image', 'is_profile_image', 'truck',)
 
 
@@ -39,6 +44,8 @@ class TruckSerializer(serializers.ModelSerializer):
     """
     Serializer on Truck model.
 
+    LookUp Field: uuid.
+
     Fields: uuid, name, slug, info, phone_number, email, website.
     """
     products = ProductSerializer(many=True, read_only=True)
@@ -46,5 +53,6 @@ class TruckSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Truck
+        lookup_field = 'uuid'
         fields = ('uuid', 'name', 'slug', 'info',
                   'phone_number', 'email', 'website', 'products', 'images',)

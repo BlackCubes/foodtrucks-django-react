@@ -19,9 +19,12 @@ class TruckDetailsAPIView(generics.RetrieveUpdateDestroyAPIView):
     """
     API view for Truck to retrieve, update, or delete.
 
+    LookUp Field: uuid.
+
     Request Type: GET, PUT, PATCH, and DELETE.
     """
     queryset = Truck.objects.all().order_by('name')
+    lookup_field = 'uuid'
     serializer_class = TruckSerializer
 
 
@@ -41,9 +44,12 @@ class TruckImageDetailsAPIView(generics.RetrieveUpdateDestroyAPIView):
     """
     API view for TruckImage to retrieve, update or delete.
 
+    LookUp Field: uuid.
+
     Request Type: GET, PUT, PATCH, and DELETE.
     """
     queryset = TruckImage.objects.all().order_by('is_profile_image')
+    lookup_field = 'uuid'
     serializer_class = TruckImageSerializer
 
 
@@ -62,6 +68,8 @@ class ProductListCreateAPIView(generics.ListCreateAPIView):
 class ProductDetailsAPIView(generics.RetrieveUpdateDestroyAPIView):
     """
     API view for Product to retrieve, update or delete.
+
+    LookUp Field: uuid.
 
     Request Type: GET, PUT, PATCH, and DELETE.
     """
