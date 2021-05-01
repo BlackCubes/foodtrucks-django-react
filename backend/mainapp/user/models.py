@@ -9,6 +9,10 @@ from .managers import CustomUserManager
 
 
 class CustomUser(AbstractUser):
+    """
+    A custom user model with fields of uuid, name, email, profile_image, password_changed,
+    password_reset_token and password_reset_expires.
+    """
     uuid = models.UUIDField(unique=True, default=uuid.uuid4, editable=False)
     username = None
     first_name = None
