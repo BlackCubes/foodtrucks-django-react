@@ -26,9 +26,11 @@ class TruckImageSerializer(serializers.ModelSerializer):
 
     Fields: uuid, image, is_profile_image.
     """
+    truck = serializers.CharField(source='truck.uuid')
+
     class Meta:
         model = TruckImage
-        fields = ('uuid', 'image', 'is_profile_image',)
+        fields = ('uuid', 'image', 'is_profile_image', 'truck',)
 
 
 # TRUCK SERIALIZER
