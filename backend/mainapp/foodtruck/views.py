@@ -1,14 +1,13 @@
-from django.shortcuts import render
-from rest_framework import viewsets
+from rest_framework import viewsets, generics
 
 from .models import Product, Truck, TruckImage
 from .serializers import ProductSerializer, TruckSerializer, TruckImageSerializer
 
 
 # TRUCK VIEWS
-class APITruckViewSet(viewsets.ModelViewSet):
+class TruckListCreateAPIView(generics.ListCreateAPIView):
     """
-    ModelViewSet for Truck.
+    API view for Truck to retrieve lists or create new.
 
     Request Type: GET and POST.
     """
@@ -16,11 +15,21 @@ class APITruckViewSet(viewsets.ModelViewSet):
     serializer_class = TruckSerializer
 
 
+class TruckDetailsAPIView(generics.RetrieveUpdateDestroyAPIView):
+    """
+    API view for Truck to retrieve, update, or delete.
+
+    Request Type: GET, PUT, PATCH, and DELETE.
+    """
+    queryset = Truck.objects.all().order_by('name')
+    serializer_class = TruckSerializer
+
+
 # TRUCKIMAGE VIEWS
 # Find out about how to implement a MANY-TO-ONE situation
-class APITruckImageViewSet(viewsets.ModelViewSet):
+class TruckImageListCreateAPIView(generics.ListCreateAPIView):
     """
-    ModelViewSet for TruckImage.
+    API view for TruckImage to retrieve lists or create new.
 
     Request Type: GET and POST.
     """
@@ -28,13 +37,33 @@ class APITruckImageViewSet(viewsets.ModelViewSet):
     serializer_class = TruckImageSerializer
 
 
+class TruckImageDetailsAPIView(generics.RetrieveUpdateDestroyAPIView):
+    """
+    API view for TruckImage to retrieve, update or delete.
+
+    Request Type: GET, PUT, PATCH, and DELETE.
+    """
+    queryset = TruckImage.objects.all().order_by('is_profile_image')
+    serializer_class = TruckImageSerializer
+
+
 # PRODUCT VIEWS
 # Find out about how to implement a MANY-TO-ONE situation
-class APIProductViewSet(viewsets.ModelViewSet):
+class ProductListCreateAPIView(generics.ListCreateAPIView):
     """
-    ModelViewSet for Product.
+    API view for Product to retrieve lists or create new.
 
     Request Type: GET and POST.
+    """
+    queryset = Product.objects.all().order_by('name')
+    serializer_class = ProductSerializer
+
+
+class ProductDetailsAPIView(generics.RetrieveUpdateDestroyAPIView):
+    """
+    API view for Product to retrieve, update or delete.
+
+    Request Type: GET, PUT, PATCH, and DELETE.
     """
     queryset = Product.objects.all().order_by('name')
     serializer_class = ProductSerializer
