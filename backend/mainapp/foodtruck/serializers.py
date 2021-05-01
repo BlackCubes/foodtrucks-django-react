@@ -1,7 +1,8 @@
 from rest_framework import serializers
 
-from .models import Product, TruckImage, Truck
 from review.serializers import ReviewSerializer
+
+from .models import Product, TruckImage, Truck
 
 
 # PRODUCT SERIALIZER
