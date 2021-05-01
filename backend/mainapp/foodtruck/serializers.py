@@ -42,4 +42,4 @@ class TruckSerializer(serializers.ModelSerializer):
     class Meta:
         model = Truck
         fields = ('uuid', 'name', 'slug', 'info',
-                  'phone_number', 'email', 'website',)
+                  'phone_number', 'email', 'website', 'products', 'images',)
