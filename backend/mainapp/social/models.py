@@ -25,7 +25,9 @@ class Emoji(models.Model):
 # LIKES
 class Like(models.Model):
     """
-    Like model with fields of uuid, like, created_at, updated_at, emoji, and product. ForeignKey: Emoji and Product.
+    Like model with fields of uuid, like, created_at, updated_at, emoji, and product.
+
+    ForeignKey: Emoji and Product.
     """
     uuid = models.UUIDField(unique=True, default=uuid.uuid4, editable=False)
     like = models.IntegerField(default=0)
