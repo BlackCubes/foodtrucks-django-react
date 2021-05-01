@@ -1,6 +1,7 @@
 from rest_framework import serializers
 
 from .models import Product, TruckImage, Truck
+from review.serializers import ReviewSerializer
 
 
 # PRODUCT SERIALIZER
@@ -13,13 +14,14 @@ class ProductSerializer(serializers.ModelSerializer):
     Fields: uuid, name, slug, info, image, price, quantity, is_available, and truck.
     """
     truck = serializers.CharField(source='truck.uuid')
+    reviews = ReviewSerializer(many=True, read_only=True)
 
     class Meta:
         model = Product
         lookup_field = 'uuid'
         # CHECK PROPER USER OF MANY-TO-ONE OUTPUT
         fields = ('uuid', 'name', 'slug', 'info', 'image',
-                  'price', 'quantity', 'is_available', 'truck',)
+                  'price', 'quantity', 'is_available', 'truck', 'reviews',)
 
 
 # TRUCKIMAGE SERIALIZER
