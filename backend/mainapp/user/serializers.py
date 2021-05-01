@@ -1,5 +1,7 @@
 from rest_framework import serializers
 
+from review.serializers import ReviewSerializer
+
 from .models import CustomUser
 
 
@@ -10,9 +12,11 @@ class UserSerializer(serializers.ModelSerializer):
 
     LookUp Field: uuid.
 
-    Fields: uuid, name, email, and profile_image.
+    Fields: uuid, name, email, profile_image, and reviews.
     """
+    reviews = ReviewSerializer(many=True, read_only=True)
+
     class Meta:
         model = CustomUser
         lookup_field = 'uuid'
-        fields = ('uuid', 'name', 'email', 'profile_image',)
+        fields = ('uuid', 'name', 'email', 'profile_image', 'reviews',)
