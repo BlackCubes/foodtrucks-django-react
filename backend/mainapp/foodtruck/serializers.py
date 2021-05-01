@@ -12,7 +12,7 @@ class ProductSerializer(serializers.ModelSerializer):
 
     LookUp Field: uuid.
 
-    Fields: uuid, name, slug, info, image, price, quantity, is_available, and truck.
+    Fields: uuid, name, slug, info, image, price, quantity, is_available, truck, and reviews.
     """
     truck = serializers.CharField(source='truck.uuid')
     reviews = ReviewSerializer(many=True, read_only=True)
