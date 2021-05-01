@@ -66,4 +66,5 @@ class ProductDetailsAPIView(generics.RetrieveUpdateDestroyAPIView):
     Request Type: GET, PUT, PATCH, and DELETE.
     """
     queryset = Product.objects.all().order_by('name')
+    lookup_field = 'uuid'
     serializer_class = ProductSerializer

@@ -14,6 +14,7 @@ class ProductSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Product
+        lookup_field = 'uuid'
         # CHECK PROPER USER OF MANY-TO-ONE OUTPUT
         fields = ('uuid', 'name', 'slug', 'info', 'image',
                   'price', 'quantity', 'is_available', 'truck',)
