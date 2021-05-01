@@ -10,6 +10,8 @@ class ProductSerializer(serializers.ModelSerializer):
 
     Fields: uuid, name, slug, info, image, price, quantity, is_available, and truck.
     """
+    truck = serializers.CharField(source='truck.uuid')
+
     class Meta:
         model = Product
         # CHECK PROPER USER OF MANY-TO-ONE OUTPUT
