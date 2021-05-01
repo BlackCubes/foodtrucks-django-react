@@ -21,5 +21,6 @@ urlpatterns = [
     # API
     path('api/v1/foodtrucks/', include('foodtruck.urls')),
     path('api/v1/reviews/', include('review.urls')),
+    path('api/v1/socials/', include('social.urls')),
     path('api/v1/users/', include('user.urls')),
 ]
