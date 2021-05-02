@@ -25,7 +25,9 @@ class Emoji(models.Model):
 # LIKES
 class Like(models.Model):
     """
-    Like model with fields of uuid, like, created_at, updated_at, emoji, and product. ForeignKey: Emoji and Product.
+    Like model with fields of uuid, like, created_at, updated_at, emoji, and product.
+
+    ForeignKey: Emoji and Product.
     """
     uuid = models.UUIDField(unique=True, default=uuid.uuid4, editable=False)
     like = models.IntegerField(default=0)
@@ -34,4 +36,5 @@ class Like(models.Model):
     updated_at = models.DateTimeField(
         _('like created at'), auto_now_add=True, blank=True, null=True)
     emoji = models.ForeignKey(Emoji, on_delete=models.CASCADE)
-    product = models.ForeignKey('foodtruck.Product', on_delete=models.CASCADE)
+    product = models.ForeignKey(
+        'foodtruck.Product', related_name='likes', on_delete=models.CASCADE)

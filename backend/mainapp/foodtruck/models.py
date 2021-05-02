@@ -1,17 +1,17 @@
+import uuid
 from django.db import models
-from django.template.defaultfilters import slugify
+from django.db.models.signals import pre_save
 from django.utils.translation import ugettext_lazy as _
 from phonenumber_field.modelfields import PhoneNumberField
-import uuid
 
 from mainapp.utils import slug_generator
-from django.db.models.signals import pre_save
 
 
 # TRUCKS
 class Truck(models.Model):
     """
-    Truck model with fields of uuid, name, slug, info, phone_number, email, website, created_at, and updated_at.
+    Truck model with fields of uuid, name, slug, info, phone_number, email, website, created_at,
+    and updated_at.
     """
     uuid = models.UUIDField(unique=True, default=uuid.uuid4, editable=False)
     name = models.CharField(_('truck name'), max_length=100, unique=True)
@@ -31,9 +31,12 @@ class Truck(models.Model):
 
 
 # TRUCK IMAGES
-class Truck_Image(models.Model):
+class TruckImage(models.Model):
     """
-    Truck_Image model with fields of uuid, image, is_profile_image, created_at, updated_at, and truck. ForeignKey=Truck.
+    TruckImage model with fields of uuid, image, is_profile_image, created_at, updated_at, and
+    truck.
+
+    ForeignKey=Truck.
     """
     uuid = models.UUIDField(unique=True, default=uuid.uuid4, editable=False)
     image = models.ImageField(upload_to='images/truck')
@@ -43,13 +46,17 @@ class Truck_Image(models.Model):
         _('truck image created at'), auto_now_add=True, blank=True, null=True)
     updated_at = models.DateTimeField(
         _('truck image updated at'), auto_now=True, blank=True, null=True)
-    truck = models.ForeignKey(Truck, on_delete=models.CASCADE)
+    truck = models.ForeignKey(
+        Truck, related_name='images', on_delete=models.CASCADE)
 
 
 # PRODUCTS
 class Product(models.Model):
     """
-    Product model with fields of uuid, name, slug, info, image, price, quantity, is_available, created_at, updated_at, and truck. ForeignKey=Truck.
+    Product model with fields of uuid, name, slug, info, image, price, quantity, is_available,
+    created_at, updated_at, and truck.
+
+    ForeignKey=Truck.
     """
     uuid = models.UUIDField(unique=True, default=uuid.uuid4, editable=False)
     name = models.CharField(_('product name'), max_length=182)
@@ -65,7 +72,8 @@ class Product(models.Model):
         _('product created at'), auto_now_add=True, blank=True, null=True)
     updated_at = models.DateTimeField(
         _('product updated at'), auto_now=True, blank=True, null=True)
-    truck = models.ForeignKey(Truck, on_delete=models.CASCADE)
+    truck = models.ForeignKey(
+        Truck, related_name='products', on_delete=models.CASCADE)
 
     def __str__(self):
         return self.name
