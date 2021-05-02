@@ -1,4 +1,4 @@
-from rest_framework import generics
+from rest_framework import generics, permissions
 
 from .models import Review
 from .serializers import ReviewSerializer
@@ -11,6 +11,7 @@ class ReviewListCreateAPIView(generics.ListCreateAPIView):
 
     Request Type: GET and POST.
     """
+    permission_classes = [permissions.AllowAny]
     queryset = Review.objects.all().order_by('created_at')
     serializer_class = ReviewSerializer
 
@@ -23,6 +24,7 @@ class ReviewDetailsAPIView(generics.RetrieveUpdateDestroyAPIView):
 
     Request Type: GET, PUT, PATCH, and DELETE.
     """
+    permission_classes = [permissions.IsAuthenticated]
     queryset = Review.objects.all().order_by('created_at')
     lookup_field = 'uuid'
     serializer_class = ReviewSerializer
