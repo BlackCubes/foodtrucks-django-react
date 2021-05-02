@@ -5,11 +5,11 @@ from .serializers import UserSerializer
 
 
 # USER VIEWS
-class UserListCreateAPIView(generics.ListCreateAPIView):
+class UserListAPIView(generics.ListAPIView):
     """
-    API view for CustomUser to retrieve lists or create new.
+    API view for CustomUser to retrieve lists.
 
-    Request Type: GET and POST.
+    Request Type: GET.
     """
     queryset = CustomUser.objects.all().order_by('name')
     serializer_class = UserSerializer
