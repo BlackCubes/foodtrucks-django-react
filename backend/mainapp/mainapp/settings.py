@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     # Installed Apps
     'phonenumber_field',
     'rest_framework',
+    'corsheaders',
     # My Apps
     'event',
     'foodtruck',
@@ -50,6 +51,7 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -132,6 +134,18 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
+REST_FRAMEWORK = {
+    'DEFAULT_PERMISSION_CLASSES': (
+        'rest_framework.permissions.AllowAny',
+    ),
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework_simplejwt.authentication.JWTAuthentication',
+    )
+}
+
+CORS_ALLOWED_ORIGINS = (
+    'http://localhost:3000',
+)
 
 # Image Upload
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
