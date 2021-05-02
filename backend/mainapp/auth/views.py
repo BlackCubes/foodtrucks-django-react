@@ -6,7 +6,7 @@ from .serializers import MyTokenObtainPairSerializer
 
 class MyObtainTokenPairView(TokenObtainPairView):
     """
-    Subclass for MyTokenObtainPairSerializer.
+    Subclass for TokenObtainPairView.
     """
     permission_classes = (AllowAny,)
     serializer_class = MyTokenObtainPairSerializer
