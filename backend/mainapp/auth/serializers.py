@@ -13,7 +13,7 @@ class MyTokenObtainPairSerializer(TokenObtainPairSerializer):
 
         Returns: token
         """
-        token = super().get_token(user)
+        token = super(MyTokenObtainPairSerializer, cls).get_token(user)
 
         token['name'] = user.name
         token['email'] = user.email
