@@ -30,14 +30,24 @@ class EmojiDetailsAPIView(generics.RetrieveAPIView):
 
 # LIKE VIEWS
 # FIND A WAY TO DYNAMICALLY CHANGE/UPDATE WITH TWO FOREIGN FIELDS
-class LikeListCreateAPIView(generics.ListCreateAPIView):
-    """"""
+class LikeCreateAPIView(generics.CreateAPIView):
+    """
+    API view for Like to create new.
+
+    Request Type: POST.
+    """
     queryset = Like.objects.all().order_by('created_at')
     serializer_class = LikeSerializer
 
 
 class LikeDetailsAPIView(generics.RetrieveUpdateAPIView):
-    """"""
+    """
+    API view for Like to retrieve or update.
+
+    LookUp Field: uuid.
+
+    Request Type: GET, PUT, and PATCH.
+    """
     queryset = Like.objects.all().order_by('created_at')
     lookup_field = 'uuid'
     serializer_class = LikeSerializer
