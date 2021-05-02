@@ -19,12 +19,12 @@ class TruckDetailsAPIView(generics.RetrieveAPIView):
     """
     API view for Truck to retrieve.
 
-    LookUp Field: uuid.
+    LookUp Field: slug.
 
     Request Type: GET.
     """
     queryset = Truck.objects.all().order_by('name')
-    lookup_field = 'uuid'
+    lookup_field = 'slug'
     serializer_class = TruckSerializer
 
 
@@ -43,10 +43,10 @@ class ProductDetailsAPIView(generics.RetrieveAPIView):
     """
     API view for Product to retrieve.
 
-    LookUp Field: uuid.
+    LookUp Field: slug.
 
     Request Type: GET.
     """
     queryset = Product.objects.all().order_by('name')
-    lookup_field = 'uuid'
+    lookup_field = 'slug'
     serializer_class = ProductSerializer
