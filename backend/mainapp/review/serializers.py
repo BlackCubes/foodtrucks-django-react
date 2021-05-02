@@ -12,7 +12,7 @@ class ReviewSerializer(serializers.ModelSerializer):
 
     Fields: uuid, review, created_at, updated_at, product, and user.
     """
-    product = serializers.CharField(source='product.uuid')
+    product = serializers.CharField(source='product.slug')
     user = serializers.CharField(source='user.uuid')
 
     class Meta:
