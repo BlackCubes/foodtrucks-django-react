@@ -8,11 +8,11 @@ class EventSerializer(serializers.ModelSerializer):
     """
     Serializer on Event model.
 
-    LookUp Field: uuid.
+    LookUp Field: slug.
 
     Fields: uuid, date, start_time, end_time, and truck.
     """
-    truck = serializers.CharField(source='truck.uuid')
+    truck = serializers.CharField(source='truck.slug')
 
     class Meta:
         model = Event
