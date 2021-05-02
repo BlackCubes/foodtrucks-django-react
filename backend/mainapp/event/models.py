@@ -15,4 +15,4 @@ class Event(models.Model):
     start_time = models.TimeField(_('start time'))
     end_time = models.TimeField(_('end time'))
     truck = models.ManyToManyField(
-        'foodtruck.Truck', related_name='images')
+        'foodtruck.Truck', related_name='events')
