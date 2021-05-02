@@ -13,7 +13,7 @@ class LikeSerializer(serializers.ModelSerializer):
     Fields: uuid, like, emoji, and product.
     """
     emoji = serializers.CharField(source='emoji.emoji')
-    product = serializers.CharField(source='product.uuid')
+    product = serializers.CharField(source='product.slug')
 
     class Meta:
         model = Like
