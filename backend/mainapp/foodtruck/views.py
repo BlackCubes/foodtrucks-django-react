@@ -1,6 +1,6 @@
 from rest_framework import generics
 
-from .models import Product, Truck, TruckImage
+from .models import Product, Truck
 from .serializers import ProductSerializer, TruckSerializer
 
 
