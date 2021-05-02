@@ -29,7 +29,6 @@ class EmojiDetailsAPIView(generics.RetrieveAPIView):
 
 
 # LIKE VIEWS
-# FIND A WAY TO DYNAMICALLY CHANGE/UPDATE WITH TWO FOREIGN FIELDS
 class LikeCreateAPIView(generics.CreateAPIView):
     """
     API view for Like to create new.
