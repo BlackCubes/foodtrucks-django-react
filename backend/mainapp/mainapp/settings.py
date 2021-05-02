@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'corsheaders',
     # My Apps
+    'authentication',
     'event',
     'foodtruck',
     'review',
