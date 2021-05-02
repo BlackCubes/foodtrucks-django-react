@@ -1,4 +1,4 @@
-from rest_framework import generics
+from rest_framework import generics, permissions
 
 from .models import Emoji, Like
 from .serializers import EmojiSerializer, LikeSerializer
@@ -11,6 +11,7 @@ class EmojiListAPIView(generics.ListAPIView):
 
     Request Type: GET.
     """
+    permission_classes = [permissions.AllowAny]
     queryset = Emoji.objects.all()
     serializer_class = EmojiSerializer
 
@@ -23,6 +24,7 @@ class EmojiDetailsAPIView(generics.RetrieveAPIView):
 
     Request Type: GET.
     """
+    permission_classes = [permissions.AllowAny]
     queryset = Emoji.objects.all()
     lookup_field = 'uuid'
     serializer_class = EmojiSerializer
@@ -35,6 +37,7 @@ class LikeCreateAPIView(generics.CreateAPIView):
 
     Request Type: POST.
     """
+    permission_classes = [permissions.AllowAny]
     queryset = Like.objects.all().order_by('created_at')
     serializer_class = LikeSerializer
 
@@ -47,6 +50,7 @@ class LikeDetailsAPIView(generics.RetrieveUpdateAPIView):
 
     Request Type: GET, PUT, and PATCH.
     """
+    permission_classes = [permissions.AllowAny]
     queryset = Like.objects.all().order_by('created_at')
     lookup_field = 'uuid'
     serializer_class = LikeSerializer

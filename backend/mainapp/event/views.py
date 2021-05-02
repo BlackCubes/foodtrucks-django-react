@@ -1,4 +1,4 @@
-from rest_framework import generics
+from rest_framework import generics, permissions
 
 from .models import Event
 from .serializers import EventSerializer
@@ -11,6 +11,7 @@ class EventListAPIView(generics.ListAPIView):
 
     Request Type: GET.
     """
+    permission_classes = [permissions.AllowAny]
     queryset = Event.objects.all().order_by('date')
     serializer_class = EventSerializer
 
@@ -23,6 +24,7 @@ class EventDetailsAPIView(generics.RetrieveAPIView):
 
     Request Type: GET.
     """
+    permission_classes = [permissions.AllowAny]
     queryset = Event.objects.all().order_by('date')
     lookup_field = 'uuid'
     serializer_class = EventSerializer

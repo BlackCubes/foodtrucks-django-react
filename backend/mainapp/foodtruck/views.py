@@ -1,4 +1,4 @@
-from rest_framework import generics
+from rest_framework import generics, permissions
 
 from .models import Product, Truck
 from .serializers import ProductSerializer, TruckSerializer
@@ -11,6 +11,7 @@ class TruckListAPIView(generics.ListAPIView):
 
     Request Type: GET.
     """
+    permission_classes = [permissions.AllowAny]
     queryset = Truck.objects.all().order_by('name')
     serializer_class = TruckSerializer
 
@@ -23,6 +24,7 @@ class TruckDetailsAPIView(generics.RetrieveAPIView):
 
     Request Type: GET.
     """
+    permission_classes = [permissions.AllowAny]
     queryset = Truck.objects.all().order_by('name')
     lookup_field = 'slug'
     serializer_class = TruckSerializer
@@ -35,6 +37,7 @@ class ProductListAPIView(generics.ListAPIView):
 
     Request Type: GET.
     """
+    permission_classes = [permissions.AllowAny]
     queryset = Product.objects.all().order_by('name')
     serializer_class = ProductSerializer
 
@@ -47,6 +50,7 @@ class ProductDetailsAPIView(generics.RetrieveAPIView):
 
     Request Type: GET.
     """
+    permission_classes = [permissions.AllowAny]
     queryset = Product.objects.all().order_by('name')
     lookup_field = 'slug'
     serializer_class = ProductSerializer

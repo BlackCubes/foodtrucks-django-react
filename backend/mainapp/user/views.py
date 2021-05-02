@@ -1,4 +1,4 @@
-from rest_framework import generics
+from rest_framework import generics, permissions
 
 from .models import CustomUser
 from .serializers import UserSerializer
@@ -11,6 +11,7 @@ class UserListAPIView(generics.ListAPIView):
 
     Request Type: GET.
     """
+    permission_classes = [permissions.IsAuthenticated]
     queryset = CustomUser.objects.all().order_by('name')
     serializer_class = UserSerializer
 
@@ -23,6 +24,7 @@ class UserDetailsAPIView(generics.RetrieveUpdateDestroyAPIView):
 
     Request Type: GET, PUT, PATCH, and DELETE.
     """
+    permission_classes = [permissions.IsAuthenticated]
     queryset = CustomUser.objects.all().order_by('name')
     lookup_field = 'uuid'
     serializer_class = UserSerializer
