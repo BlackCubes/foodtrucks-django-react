@@ -1,5 +1,6 @@
 from rest_framework import serializers
 
+from event.serializers import EventSerializer
 from social.serializers import LikeSerializer
 from review.serializers import ReviewSerializer
 
@@ -51,13 +52,14 @@ class TruckSerializer(serializers.ModelSerializer):
 
     LookUp Field: uuid.
 
-    Fields: uuid, name, slug, info, phone_number, email, website.
+    Fields: uuid, name, slug, info, phone_number, email, website, products, images, and events.
     """
     products = ProductSerializer(many=True, read_only=True)
     images = TruckImageSerializer(many=True, read_only=True)
+    events = EventSerializer(many=True, read_only=True)
 
     class Meta:
         model = Truck
         lookup_field = 'uuid'
         fields = ('uuid', 'name', 'slug', 'info',
-                  'phone_number', 'email', 'website', 'products', 'images',)
+                  'phone_number', 'email', 'website', 'products', 'images', 'events',)
