@@ -24,6 +24,8 @@ class ChangePasswordView(generics.UpdateAPIView):
     """
     API view for CustomUser to change user's password.
 
+    LookUp Field: uuid.
+
     Request Type: PATCH and PUT.
     """
     permission_classes = (IsAuthenticated,)
