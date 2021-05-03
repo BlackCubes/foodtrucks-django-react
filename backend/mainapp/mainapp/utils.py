@@ -6,6 +6,9 @@ from django.utils.text import slugify
 
 
 def upload_to(instance, filename, pathstart):
+    """
+    Changed the output of the photo name.
+    """
     now = timezone.now()
     base, extension = os.path.splitext(filename.lower())
     milliseconds = now.milliseconds // 1000
