@@ -12,7 +12,7 @@ def upload_to(instance, filename, pathstart):
     now = timezone.now()
     base, extension = os.path.splitext(filename.lower())
     milliseconds = now.milliseconds // 1000
-    return f"{pathstart}/{instance.uuid}/{now%Y%m%d%H%M%S}{milliseconds}{extension}"
+    return f"{pathstart}/{instance.uuid}/{milliseconds}{extension}"
 
 
 def random_string_generator(size=10, chars=string.ascii_lowercase + string.digits):
