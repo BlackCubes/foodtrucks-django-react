@@ -15,6 +15,6 @@ urlpatterns = [
     path('change_password/<uuid:uuid>/', ChangePasswordView.as_view()),
     path('update_profile/<uuid:uuid>/', views.UpdateUserAPIView.as_view()),
     path('update_image/', views.UserImageUploadAPIView.as_view()),
-    path('<uuid:uuid>', views.UserDetailsAPIView.as_view()),
+    path('<uuid:uuid>/', views.UserDetailsAPIView.as_view()),
     path('', views.UserListAPIView.as_view()),
 ]
