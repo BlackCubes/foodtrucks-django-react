@@ -20,16 +20,16 @@ class UserListAPIView(generics.ListAPIView):
     serializer_class = UserSerializer
 
 
-class UserDetailsAPIView(generics.RetrieveUpdateDestroyAPIView):
+class UserDetailsAPIView(generics.RetrieveAPIView):
     """
-    API view for CustomUser to retrieve, update, or delete.
+    API view for CustomUser to retrieve.
 
     LookUp Field: uuid.
 
-    Request Type: GET, PUT, PATCH, and DELETE.
+    Request Type: GET.
     """
     permission_classes = (IsAuthenticated,)
-    queryset = CustomUser.objects.all().order_by('name')
+    queryset = CustomUser.objects.all()
     lookup_field = 'uuid'
     serializer_class = UserSerializer
 
