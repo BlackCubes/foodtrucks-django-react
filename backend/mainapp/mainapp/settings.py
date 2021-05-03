@@ -45,8 +45,10 @@ INSTALLED_APPS = [
     # Installed Apps
     'phonenumber_field',
     'rest_framework',
+    'rest_framework_simplejwt.token_blacklist',
     'corsheaders',
     # My Apps
+    'authentication',
     'event',
     'foodtruck',
     'review',
