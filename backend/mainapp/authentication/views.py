@@ -28,6 +28,7 @@ class ChangePasswordView(generics.UpdateAPIView):
     """
     permission_classes = (IsAuthenticated,)
     queryset = CustomUser.objects.all()
+    lookup_field = 'uuid'
     serializer_class = ChangePasswordSerializer
 
 
