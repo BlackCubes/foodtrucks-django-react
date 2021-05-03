@@ -58,7 +58,7 @@ class ChangePasswordSerializer(serializers.ModelSerializer):
 
     def validate(self, data):
         """
-        Checks to see if password and password2 are the same.
+        Checks to see if password and password2 are the same, and if they exist.
         """
         if not 'password' in data:
             raise serializers.ValidationError(
