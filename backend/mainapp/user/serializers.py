@@ -36,6 +36,17 @@ class UpdateUserSerializer(serializers.ModelSerializer):
         model = CustomUser
         fields = ('name', 'email',)
 
+    def validate(self, data):
+        """
+        Checks to see if name and email exists.
+        """
+        if not 'name' in data:
+            raise serializers.ValidationError(
+                {'name': 'Name field is required.'})
+        if not 'email' in data:
+            raise serializers.ValidationError(
+                {'email': 'Email field is required.'})
+
     def validate_email(self, value):
         """
         Checks to see if the new requested email already exists.
