@@ -15,7 +15,7 @@ def upload_to(instance, filename):
     now = timezone.now()
     base, extension = os.path.splitext(filename.lower())
     milliseconds = now.microsecond // 1000
-    return f"images/user/{instance.uuid}/{milliseconds}{extension}"
+    return f"images/user/{instance.uuid}/{now:%Y%m%d%H%M%S}{milliseconds}{extension}"
 
 
 class CustomUser(AbstractUser):
