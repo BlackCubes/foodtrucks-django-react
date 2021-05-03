@@ -20,7 +20,7 @@ class RegisterView(generics.CreateAPIView):
     serializer_class = RegisterSerializer
 
 
-class ChangePasswordView(generics.CreateAPIView):
+class ChangePasswordView(generics.UpdateAPIView):
     """
     API view for CustomUser to change user's password.
 
