@@ -57,6 +57,9 @@ class ChangePasswordSerializer(serializers.ModelSerializer):
         fields = ('old_password', 'password', 'password2',)
 
     def validate(self, data):
+        """
+        Checks to see if password and password2 are the same.
+        """
         if data['password'] != data['password2']:
             raise serializers.ValidationError(
                 {'password': 'Password fields did not match.'})
@@ -64,6 +67,9 @@ class ChangePasswordSerializer(serializers.ModelSerializer):
         return data
 
     def validate_old_password(self, value):
+        """
+        Checks to see if old_password is correct.
+        """
         user = self.context['request'].user
         if not user.check_password(value):
             raise serializers.ValidationError(
