@@ -63,10 +63,10 @@ class ChangePasswordSerializer(serializers.ModelSerializer):
         if not 'password' in data:
             raise serializers.ValidationError(
                 {'password': 'New password field is required.'})
-        elif not 'password2' in data:
+        if not 'password2' in data:
             raise serializers.ValidationError(
                 {'password2': 'Confirming new password field is required.'})
-        elif data['password'] != data['password2']:
+        if data['password'] != data['password2']:
             raise serializers.ValidationError(
                 {'password': 'Password fields did not match.'})
 
