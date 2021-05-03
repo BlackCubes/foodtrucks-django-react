@@ -34,6 +34,20 @@ class UserDetailsAPIView(generics.RetrieveUpdateDestroyAPIView):
     serializer_class = UserSerializer
 
 
+class UpdateUserAPIView(generics.UpdateAPIView):
+    """
+    API view for CustomUser to update.
+
+    LookUp Field: uuid.
+
+    Request Type: PUT and PATCH.
+    """
+    permission_classes = (IsAuthenticated,)
+    queryset = CustomUser.objects.all()
+    lookup_field = 'uuid'
+    serializer_class = UpdateUserSerializer
+
+
 class UserImageUploadAPIView(APIView):
     """
     API view for CustomUser to upload user's photo.
