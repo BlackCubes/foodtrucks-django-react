@@ -1,4 +1,4 @@
-import loginApi from './api';
+import loginAPI from './api';
 import headers from './headers';
 
-export { headers, loginApi };
+export { headers, loginAPI };
