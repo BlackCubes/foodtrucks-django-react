@@ -18,7 +18,7 @@ import { useAuthContext } from '../../context';
 const Navbar = () => {
   const { logout } = useAuthContext();
 
-  const token = localStorage.getItem('jwt') || null;
+  const token = localStorage.getItem('access_token') || null;
 
   return (
     <NavbarStyled>
