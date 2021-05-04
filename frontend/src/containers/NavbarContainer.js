@@ -8,7 +8,7 @@ const NavbarContainer = () => {
 
   return location.pathname === '/login' ? (
     <AccountNavbar />
-  ) : location.pathname === '/checkout' ? (
+  ) : location.pathname === '/login' ? (
     <AccountNavbar />
   ) : (
     <Navbar />
