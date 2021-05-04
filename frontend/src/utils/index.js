@@ -1,4 +1,10 @@
-import loginAPI from './api';
+import {
+  loginAPI,
+  logoutAPI,
+  updateImageAPI,
+  updatePasswordAPI,
+  updateProfileAPI,
+} from './api';
 
 import { fieldInputErrors, fieldInputProperties } from './fieldPropHandler';
 
@@ -11,5 +17,9 @@ export {
   fieldInputProperties,
   headers,
   loginAPI,
+  logoutAPI,
+  updateImageAPI,
+  updatePasswordAPI,
+  updateProfileAPI,
   validateForm,
 };
