@@ -47,6 +47,8 @@ class UpdateUserSerializer(serializers.ModelSerializer):
             raise serializers.ValidationError(
                 {'email': 'Email field is required.'})
 
+        return data
+
     def validate_email(self, value):
         """
         Checks to see if the new requested email already exists.
