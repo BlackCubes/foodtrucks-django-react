@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-// import { useHistory } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
 import { AuthContext } from '../context';
@@ -8,12 +8,19 @@ import { headers, loginAPI } from '../utils';
 
 const AuthProvider = ({ children }) => {
   const [apiAuthErr, setApiAuthErr] = useState(null);
-  // const history = useHistory();
+  const history = useHistory();
 
   const login = async (data) => {
     try {
       const currentAccessToken = localStorage.getItem('access_token') || null;
       const apiData = await loginAPI(data, headers(currentAccessToken));
+
+      if (apiData.status === 'success') {
+        localStorage.setItem('access_token', apiData.token.access);
+        localStorage.setItem('refresh_token', apiData.token.refresh);
+
+        history.push('/');
+      }
 
       if (apiData.status === 'fail' || apiData.status === 'error')
         throw new Error(apiData.message);
