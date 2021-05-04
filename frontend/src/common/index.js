@@ -1,3 +1,4 @@
 import Button from './Button';
+import { FormStyled, FormGroupStyled } from './FormStyled';
 
-export default Button;
+export { Button, FormGroupStyled, FormStyled };
