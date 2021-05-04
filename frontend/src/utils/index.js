@@ -1,7 +1,15 @@
 import loginAPI from './api';
 
+import { fieldInputErrors, fieldInputProperties } from './fieldPropHandler';
+
 import headers from './headers';
 
 import validateForm from './validate';
 
-export { headers, loginAPI, validateForm };
+export {
+  fieldInputErrors,
+  fieldInputProperties,
+  headers,
+  loginAPI,
+  validateForm,
+};

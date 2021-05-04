@@ -1,44 +1,43 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 
 import { useAuthContext } from '../context';
 
-import { validateForm } from '../utils';
+const loginFormFields = [
+  {
+    type: 'email',
+    name: 'email',
+    id: 'email',
+    placeholder: 'Email',
+    message: "Let's go!",
+    addlstyle: {
+      width: '100%',
+      float: 'left',
+      padding: '0 0.75rem',
+    },
+  },
+  {
+    type: 'password',
+    name: 'password',
+    id: 'password',
+    placeholder: 'Password',
+    message: "Let's go!",
+    addlstyle: {
+      width: '100%',
+      float: 'left',
+      padding: '0 0.75rem',
+    },
+  },
+];
 
-const LoginPage = () => {
-  const [values, setValues] = useState({});
-  const [errors, setErrors] = useState({});
+const LoginPage = ({ FormContainerComponent }) => {
   const { checkAuth, login, apiAuthErr } = useAuthContext();
   const history = useHistory();
 
   if (checkAuth()) history.push('/');
 
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-
-    validateForm(name, value, setErrors);
-
-    setValues((val) => ({ ...val, [name]: value }));
-  };
-
-  const checkErrors = (errorList) => {
-    let valid = true;
-    Object.values(errorList).forEach((err) => {
-      if (err.length) valid = false;
-    });
-    return valid;
-  };
-
   const onSubmission = (data) => login(data);
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    if (checkErrors(errors)) {
-      onSubmission(values);
-      setValues({});
-    }
-  };
 
   useEffect(() => {
     document.title = 'Foodtrucks | Login';
@@ -46,41 +45,18 @@ const LoginPage = () => {
 
   return (
     <>
-      <form onSubmit={handleSubmit} noValidate>
-        <div className="form__group">
-          <label htmlFor="email">
-            <input
-              type="email"
-              name="email"
-              id="email"
-              value={values.email || ''}
-              placeholder="Email"
-              onChange={handleChange}
-            />
-          </label>
-        </div>
-
-        <div className="form__group">
-          <label htmlFor="email">
-            <input
-              type="password"
-              name="password"
-              id="password"
-              value={values.password || ''}
-              placeholder="Password"
-              onChange={handleChange}
-            />
-          </label>
-        </div>
-
-        <div className="form__group">
-          <button type="submit">Submit</button>
-        </div>
-      </form>
+      <FormContainerComponent
+        onSubmit={onSubmission}
+        formFields={loginFormFields}
+      />
 
       {!apiAuthErr ? null : console.log(apiAuthErr)}
     </>
   );
+};
+
+LoginPage.propTypes = {
+  FormContainerComponent: PropTypes.elementType.isRequired,
 };
 
 export default LoginPage;
