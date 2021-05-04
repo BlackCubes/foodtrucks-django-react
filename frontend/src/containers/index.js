@@ -1,3 +1,4 @@
+import FormContainer from './FormContainer';
 import LoginPage from './LoginPage';
 
-export default LoginPage;
+export { FormContainer, LoginPage };
