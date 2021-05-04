@@ -1,4 +1,5 @@
 import {
+  getUserAPI,
   loginAPI,
   logoutAPI,
   updateImageAPI,
@@ -15,6 +16,7 @@ import validateForm from './validate';
 export {
   fieldInputErrors,
   fieldInputProperties,
+  getUserAPI,
   headers,
   loginAPI,
   logoutAPI,
