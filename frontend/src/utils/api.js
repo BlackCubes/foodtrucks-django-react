@@ -35,6 +35,21 @@ export const logoutAPI = async (data, headers) => {
   }
 };
 
+export const getUserAPI = async (headers, uuid) => {
+  try {
+    const url = `${process.env.REACT_APP_FOODTRUCKS_SERVER_URL}/users/${uuid}/`;
+    const res = await axios({
+      method: 'GET',
+      url,
+      headers,
+    });
+    if (res.status === 200) return { status: 'success', data: res.data };
+  } catch (err) {
+    console.log(err);
+    return { status: 'error', message: err.message };
+  }
+};
+
 export const updatePasswordAPI = async (data, headers, uuid) => {
   try {
     const url = `${process.env.REACT_APP_FOODTRUCKS_SERVER_URL}/users/update_password/${uuid}/`;
