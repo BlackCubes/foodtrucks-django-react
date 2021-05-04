@@ -11,6 +11,8 @@ import { fieldInputErrors, fieldInputProperties } from './fieldPropHandler';
 
 import headers from './headers';
 
+import parseJwt from './parseJwt';
+
 import validateForm from './validate';
 
 export {
@@ -20,6 +22,7 @@ export {
   headers,
   loginAPI,
   logoutAPI,
+  parseJwt,
   updateImageAPI,
   updatePasswordAPI,
   updateProfileAPI,
