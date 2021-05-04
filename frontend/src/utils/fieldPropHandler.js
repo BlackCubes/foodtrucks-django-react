@@ -7,7 +7,6 @@ export const fieldInputProperties = (prop) => ({
   value: prop.values[prop.name] || '',
   placeholder: prop.placeholder,
   onChange: prop.onChange,
-  onFocus: prop.onFocus,
   noValidate: prop.noValidate || true,
   message: prop.message,
   addlstyle: prop.addlstyle,
