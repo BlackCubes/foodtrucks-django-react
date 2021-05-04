@@ -1,3 +1,4 @@
 import Inputs from './Inputs';
+import Snackbar from './Snackbar';
 
-export default Inputs;
+export { Inputs, Snackbar };

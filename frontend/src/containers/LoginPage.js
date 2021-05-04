@@ -2,6 +2,8 @@ import React, { useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
+import { Snackbar } from '../components';
+
 import { useAuthContext } from '../context';
 
 const loginFormFields = [
@@ -50,7 +52,7 @@ const LoginPage = ({ FormContainerComponent }) => {
         formFields={loginFormFields}
       />
 
-      {!apiAuthErr ? null : console.log(apiAuthErr)}
+      {!apiAuthErr ? null : <Snackbar color="red">{apiAuthErr}</Snackbar>}
     </>
   );
 };
