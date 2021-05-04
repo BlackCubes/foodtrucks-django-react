@@ -1,4 +1,7 @@
 import loginAPI from './api';
+
 import headers from './headers';
 
-export { headers, loginAPI };
+import validateForm from './validate';
+
+export { headers, loginAPI, validateForm };
