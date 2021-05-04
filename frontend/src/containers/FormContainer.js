@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 import { Button, FormStyled, FormGroupStyled } from '../common';
 
-import Inputs from '../components';
+import { Inputs } from '../components';
 
 import { fieldInputErrors, fieldInputProperties, validateForm } from '../utils';
 
