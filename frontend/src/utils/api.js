@@ -52,7 +52,7 @@ export const getUserAPI = async (headers, uuid) => {
 
 export const updatePasswordAPI = async (data, headers, uuid) => {
   try {
-    const url = `${process.env.REACT_APP_FOODTRUCKS_SERVER_URL}/users/update_password/${uuid}/`;
+    const url = `${process.env.REACT_APP_FOODTRUCKS_SERVER_URL}/users/change_password/${uuid}/`;
     const res = await axios({
       method: 'PATCH',
       url,
