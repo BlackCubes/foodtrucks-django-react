@@ -17,7 +17,7 @@ import {
   FooterCopyrightContentStyled,
 } from '../../common/Footer';
 
-import Small from '../../common/Typography/Small';
+import { Small } from '../../common/Typography';
 
 library.add(faGithub, faLinkedin);
 
