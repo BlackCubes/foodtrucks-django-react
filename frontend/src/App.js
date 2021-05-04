@@ -1,6 +1,8 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
+import { Main } from './common/Base';
+
 import LoginPage from './containers';
 
 import AuthProvider from './providers';
@@ -9,11 +11,13 @@ function App() {
   return (
     <Router>
       <AuthProvider>
-        <Switch>
-          <Route exact path="/login">
-            <LoginPage />
-          </Route>
-        </Switch>
+        <Main>
+          <Switch>
+            <Route exact path="/login">
+              <LoginPage />
+            </Route>
+          </Switch>
+        </Main>
       </AuthProvider>
     </Router>
   );

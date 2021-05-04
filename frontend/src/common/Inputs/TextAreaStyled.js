@@ -1,8 +1,10 @@
 import styled from 'styled-components';
 
-export default styled.input`
+export default styled.textarea`
   display: block;
+  font-family: inherit;
   width: 100%;
+  height: 20rem;
   margin-left: auto;
   margin-right: auto;
   padding: 1.5rem;
@@ -11,6 +13,7 @@ export default styled.input`
   border-bottom: 0.3rem solid transparent;
   border-radius: 0.2rem;
   transition: all 0.3s;
+  resize: none;
 
   &:focus {
     outline: none;
@@ -44,10 +47,7 @@ export default styled.input`
   }
 
   @media ${(props) => props.theme.responsive.below_599} {
+    height: 15rem;
     padding: 1.3rem;
-  }
-
-  @media ${(props) => props.theme.responsive.below_379} {
-    padding: 1rem;
   }
 `;
