@@ -12,7 +12,7 @@ const loginAPI = async (data, headers) => {
       headers,
     });
 
-    if (res.status === 200) return res.data;
+    if (res.status === 200) return { status: 'success', token: res.data };
   } catch (err) {
     console.log(err.message);
     return { status: 'error', message: err.message };
