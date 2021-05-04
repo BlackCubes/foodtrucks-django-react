@@ -15,6 +15,7 @@ const loginAPI = async (data, headers) => {
     if (res.status === 200) return res.data;
   } catch (err) {
     console.log(err.message);
+    return { status: 'error', message: err.message };
   }
 };
 
