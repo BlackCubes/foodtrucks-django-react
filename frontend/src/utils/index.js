@@ -6,4 +6,10 @@ import headers from './headers';
 
 import validateForm from './validate';
 
-export { fieldInputErrors, fieldInputProperties headers, loginAPI, validateForm };
+export {
+  fieldInputErrors,
+  fieldInputProperties,
+  headers,
+  loginAPI,
+  validateForm,
+};
