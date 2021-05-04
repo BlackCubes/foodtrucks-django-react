@@ -93,7 +93,7 @@ const ProfilePage = ({ FormContainerComponent }) => {
     getCurrentUser();
   }, []);
 
-  if (checkAuth()) history.push('/login');
+  if (!checkAuth()) history.push('/login');
 
   const onSubmission = (apiFunction) => (data) => apiFunction(data);
 
