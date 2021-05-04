@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 import { Main } from './common/Base';
 
-import LoginPage from './containers';
+import { LoginPage } from './containers';
 
 import AuthProvider from './providers';
 
