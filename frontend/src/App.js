@@ -8,6 +8,7 @@ import {
   FormContainer,
   LoginPage,
   NavbarContainer,
+  ProfilePage,
 } from './containers';
 
 import AuthProvider from './providers';
@@ -21,6 +22,10 @@ function App() {
           <Switch>
             <Route exact path="/login">
               <LoginPage FormContainerComponent={FormContainer} />
+            </Route>
+
+            <Route exact path="/myProfile">
+              <ProfilePage FormContainerComponent={FormContainer} />
             </Route>
           </Switch>
         </Main>
