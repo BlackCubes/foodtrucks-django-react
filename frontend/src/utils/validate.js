@@ -41,6 +41,56 @@ const validateForm = (inputName, inputValue, setErrors) => {
       else setErrors((err) => ({ ...err, [inputName]: '' }));
       break;
 
+    case 'password2':
+      if (!inputValue.length)
+        setErrors((err) => ({
+          ...err,
+          [inputName]: 'Required.',
+        }));
+      else if (inputValue.length < 8)
+        setErrors((err) => ({
+          ...err,
+          [inputName]: 'Must be a minimum of 8 characters.',
+        }));
+      else if (inputValue.length > 60)
+        setErrors((err) => ({
+          ...err,
+          [inputName]: 'Must be less than or equal to 60 characters.',
+        }));
+      else if (!regex.password.test(inputValue))
+        setErrors((err) => ({
+          ...err,
+          [inputName]:
+            'Please use at least one number, one special character, and one capital letter between 8 to 60 characters.',
+        }));
+      else setErrors((err) => ({ ...err, [inputName]: '' }));
+      break;
+
+    case 'old_password':
+      if (!inputValue.length)
+        setErrors((err) => ({
+          ...err,
+          [inputName]: 'Required.',
+        }));
+      else if (inputValue.length < 8)
+        setErrors((err) => ({
+          ...err,
+          [inputName]: 'Must be a minimum of 8 characters.',
+        }));
+      else if (inputValue.length > 60)
+        setErrors((err) => ({
+          ...err,
+          [inputName]: 'Must be less than or equal to 60 characters.',
+        }));
+      else if (!regex.password.test(inputValue))
+        setErrors((err) => ({
+          ...err,
+          [inputName]:
+            'Please use at least one number, one special character, and one capital letter between 8 to 60 characters.',
+        }));
+      else setErrors((err) => ({ ...err, [inputName]: '' }));
+      break;
+
     case 'name':
       if (!inputValue.length)
         setErrors((err) => ({
