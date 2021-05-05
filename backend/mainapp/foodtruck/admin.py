@@ -6,7 +6,7 @@ from .models import Product, Truck, TruckImage
 
 
 # PRODUCT INLINE
-class ProductInline(admin.TabularInline):
+class ProductInline(admin.StackedInline):
     """
     TabularInline for Product.
 
