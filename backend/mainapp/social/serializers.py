@@ -47,7 +47,7 @@ class SpecialCaseLikeSerializer(serializers.ModelSerializer):
     def create(self, validated_data):
         like_uuid = validated_data.get('uuid', None)
         if like_uuid is not None:
-            like_exist = Like.objects.filter(id=like_uuid).first()
+            like_exist = Like.objects.filter(uuid=like_uuid).first()
             if like_exist is not None:
                 like = like_exist.like
                 like += validated_data['like']
