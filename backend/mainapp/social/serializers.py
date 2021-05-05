@@ -1,5 +1,6 @@
 from rest_framework import serializers
 
+from foodtruck.models import Product
 from .models import Emoji, Like
 
 
@@ -12,8 +13,12 @@ class LikeSerializer(serializers.ModelSerializer):
 
     Fields: uuid, like, emoji, and product.
     """
-    emoji = serializers.CharField(source='emoji.emoji')
-    product = serializers.CharField(source='product.slug')
+    # emoji = serializers.CharField(source='emoji.emoji')
+    # product = serializers.CharField(source='product.slug')
+    emoji = serializers.SlugRelatedField(
+        slug_field='emoji', queryset=Emoji.objects.all())
+    product = serializers.SlugRelatedField(
+        slug_field='slug', queryset=Product.objects.all())
 
     class Meta:
         model = Like
