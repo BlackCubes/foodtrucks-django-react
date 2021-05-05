@@ -7,7 +7,7 @@ from .models import CustomUser
 
 
 @receiver(post_save, sender=CustomUser)
-def send_mail_on_create(sender, instance, **kwargs):
+def send_mail_on_create(sender, instance, created=False, **kwargs):
     """
     Send email to user upon registration.
     """
