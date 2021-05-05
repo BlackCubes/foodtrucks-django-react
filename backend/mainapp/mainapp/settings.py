@@ -57,7 +57,7 @@ INSTALLED_APPS = [
     'foodtruck',
     'review',
     'social',
-    'user',
+    'user.apps.UserConfig',
 ]
 
 MIDDLEWARE = [
