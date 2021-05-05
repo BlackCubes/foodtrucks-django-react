@@ -45,7 +45,6 @@ class SpecialCaseLikeSerializer(serializers.ModelSerializer):
         fields = ('uuid', 'like', 'emoji', 'product',)
 
     def create(self, validated_data):
-        print(self.initial_data['uuid'])
         # like_uuid = validated_data.get('uuid', None)
         like_uuid = self.initial_data['uuid'] if True else None
         if like_uuid is not None:
