@@ -25,7 +25,10 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
+EMAIL_FROM = env.str('EMAIL_FROM')
 SECRET_KEY = env.str('JWT_SECRET_KEY')
+SENDGRID_USERNAME = env.str('SENDGRID_USERNAME')
+SENDGRID_PASSWORD = env.str('SENDGRID_PASSWORD')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -46,6 +49,7 @@ INSTALLED_APPS = [
     'phonenumber_field',
     'rest_framework',
     'rest_framework_simplejwt.token_blacklist',
+    'django_rest_passwordreset',
     'corsheaders',
     # My Apps
     'authentication',
@@ -53,7 +57,7 @@ INSTALLED_APPS = [
     'foodtruck',
     'review',
     'social',
-    'user',
+    'user.apps.UserConfig',
 ]
 
 MIDDLEWARE = [
@@ -180,6 +184,16 @@ SIMPLE_JWT = {
 CORS_ALLOWED_ORIGINS = (
     'http://localhost:3000',
 )
+
+# EMAILS
+# Printing Backend terminal console (replace later)
+# EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
+EMAIL_HOST = 'smtp.sendgrid.net'
+EMAIL_HOST_USER = SENDGRID_USERNAME
+EMAIL_HOST_PASSWORD = SENDGRID_PASSWORD
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
 
 # Image Upload
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
