@@ -18,7 +18,7 @@ from django.urls import include, path, re_path
 
 urlpatterns = [
     re_path(r'^jet/', include('jet.urls', 'jet')),
-    re_path(r'^admin/', include(admin.site.urls)),
+    re_path(r'^admin/', admin.site.urls),
     # API
     path('api/v1/events/', include('event.urls')),
     path('api/v1/foodtrucks/', include('foodtruck.urls')),
