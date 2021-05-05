@@ -53,8 +53,8 @@ class SpecialCaseLikeSerializer(serializers.ModelSerializer):
             if like_exist is not None:
                 like = like_exist.like
                 like += validated_data['like']
-                like.save()
-                return like
+                like_exist.save()
+                return like_exist
 
         new_like = Like.objects.create(**validated_data)
         return new_like
