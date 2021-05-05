@@ -9,4 +9,5 @@ urlpatterns = [
     path('likes/<uuid:uuid>', views.LikeDetailsAPIView.as_view()),
     path('emojis/', views.EmojiListAPIView.as_view()),
     path('emojis/<uuid:uuid>', views.EmojiDetailsAPIView.as_view()),
+    path('', views.SpecialCaseLikeCreateAPIView.as_view()),
 ]
