@@ -7,7 +7,7 @@ from .models import Emoji, Like
 # LIKE SERIALIZER
 class LikeSerializer(serializers.ModelSerializer):
     """
-    Serializer on Like model.
+    Normal Serializer on Like model.
 
     LookUp Field: uuid.
 
@@ -24,6 +24,38 @@ class LikeSerializer(serializers.ModelSerializer):
         model = Like
         lookup_field = 'uuid'
         fields = ('uuid', 'like', 'emoji', 'product',)
+
+
+# SPECIAL CASE LIKE SERIALIZER
+class SpecialCaseLikeSerializer(serializers.ModelSerializer):
+    """
+    Special case for Serializing on Like Model.
+
+    If the object exists, then update the like field by incrementing.
+
+    If the object does not exist, then create a new one.
+    """
+    emoji = serializers.SlugRelatedField(
+        slug_field='emoji', queryset=Emoji.objects.all())
+    product = serializers.SlugRelatedField(
+        slug_field='slug', queryset=Product.objects.all())
+
+    class Meta:
+        model = Like
+        fields = ('uuid', 'like', 'emoji', 'product',)
+
+    def create(self, validated_data):
+        like_uuid = validated_data.get('uuid', None)
+        if like_uuid is not None:
+            like_exist = Like.objects.filter(id=like_uuid).first()
+            if like_exist is not None:
+                like = like_exist.like
+                like += validated_data['like']
+                like.save()
+                return like
+
+        new_like = Like.objects.create(**validated_data)
+        return new_like
 
 
 # EMOJI SERIALIZER
