@@ -2,7 +2,7 @@ from rest_framework import generics
 from rest_framework.permissions import AllowAny
 
 from .models import Emoji, Like
-from .serializers import EmojiSerializer, LikeSerializer
+from .serializers import EmojiSerializer, LikeSerializer, SpecialCaseLikeSerializer
 
 
 # EMOJI VIEWS
@@ -41,6 +41,17 @@ class LikeCreateAPIView(generics.CreateAPIView):
     permission_classes = (AllowAny,)
     queryset = Like.objects.all().order_by('created_at')
     serializer_class = LikeSerializer
+
+
+class SpecialCaseLikeCreateAPIView(generics.CreateAPIView):
+    """
+    API view for a special case for Like to either create or update.
+
+    Request Type: POST.
+    """
+    permission_classes = (AllowAny,)
+    queryset = Like.objects.all()
+    serializer_class = SpecialCaseLikeSerializer
 
 
 class LikeDetailsAPIView(generics.RetrieveUpdateAPIView):
