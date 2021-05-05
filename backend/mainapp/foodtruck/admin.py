@@ -1,4 +1,5 @@
 from django.contrib import admin
+from jet.admin import CompactInline
 
 from .models import Product, Truck, TruckImage
 
@@ -6,7 +7,7 @@ from .models import Product, Truck, TruckImage
 
 
 # PRODUCT INLINE
-class ProductInline(admin.StackedInline):
+class ProductInline(CompactInline):
     """
     TabularInline for Product.
 
