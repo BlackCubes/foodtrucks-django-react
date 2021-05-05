@@ -11,13 +11,14 @@ def send_mail_on_create(sender, instance, **kwargs):
     """
     Send email to user upon registration.
     """
-    user = instance
-    message = f'Welcome to Foodtrucks App! We are pleased to have you! {user.name}'
-    mail = EmailMessage(
-        subject='Welcome to Foodtrucks!',
-        body=message,
-        from_email=EMAIL_FROM,
-        to=[user.email],
-        reply_to=[EMAIL_FROM],
-    )
-    return mail.send()
+    if created:
+        user = instance
+        message = f'Welcome to Foodtrucks App! We are pleased to have you! {user.name}'
+        mail = EmailMessage(
+            subject='Welcome to Foodtrucks!',
+            body=message,
+            from_email=EMAIL_FROM,
+            to=[user.email],
+            reply_to=[EMAIL_FROM],
+        )
+        return mail.send()
