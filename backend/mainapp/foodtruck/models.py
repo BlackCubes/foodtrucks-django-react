@@ -7,6 +7,26 @@ from phonenumber_field.modelfields import PhoneNumberField
 from mainapp.utils import slug_generator
 
 
+def upload_foodtruck_to(instance, filename):
+    """
+    Changed the output of the photo name.
+    """
+    now = timezone.now()
+    base, extension = os.path.splitext(filename.lower())
+    milliseconds = now.microsecond // 1000
+    return f"images/truck/{instance.uuid}/{now:%Y%m%d%H%M%S}{milliseconds}{extension}"
+
+
+def upload_product_to(instance, filename):
+    """
+    Changed the output of the photo name.
+    """
+    now = timezone.now()
+    base, extension = os.path.splitext(filename.lower())
+    milliseconds = now.microsecond // 1000
+    return f"images/product/{instance.uuid}/{now:%Y%m%d%H%M%S}{milliseconds}{extension}"
+
+
 # TRUCKS
 class Truck(models.Model):
     """
@@ -39,7 +59,7 @@ class TruckImage(models.Model):
     ForeignKey=Truck.
     """
     uuid = models.UUIDField(unique=True, default=uuid.uuid4, editable=False)
-    image = models.ImageField(upload_to='images/truck')
+    image = models.ImageField(upload_to=upload_foodtruck_to)
     is_profile_image = models.BooleanField(
         _('is profile image'), default=False)
     created_at = models.DateTimeField(
@@ -63,7 +83,7 @@ class Product(models.Model):
     slug = models.SlugField(
         _('product slug'), max_length=182, null=True, blank=True)
     info = models.CharField(_('product info'), max_length=183)
-    image = models.ImageField(upload_to='images/product/')
+    image = models.ImageField(upload_to=upload_product_to)
     # VALIDATORS FOR PRICE!!!
     price = models.FloatField(_('product price'))
     quantity = models.IntegerField(_('product quantity'), default=0)
