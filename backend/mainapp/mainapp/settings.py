@@ -25,6 +25,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
+EMAIL_FROM = env.str('EMAIL_FROM')
 SECRET_KEY = env.str('JWT_SECRET_KEY')
 SENDGRID_USERNAME = env.str('SENDGRID_USERNAME')
 SENDGRID_PASSWORD = env.str('SENDGRID_PASSWORD')
