@@ -1,4 +1,4 @@
-from django.urls import path
+from django.urls import include, path
 from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView
 
 from authentication.views import ChangePasswordView, LogoutView, RegisterView
