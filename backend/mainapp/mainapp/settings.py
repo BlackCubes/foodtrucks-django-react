@@ -182,6 +182,9 @@ CORS_ALLOWED_ORIGINS = (
     'http://localhost:3000',
 )
 
+# Printing Backend terminal console (replace later)
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
 # Image Upload
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
