@@ -1,6 +1,8 @@
 import axios from 'axios';
 
-// FOODTRUCK API
+// FOODTRUCK APIs
+
+// -- authentication
 export const loginAPI = async (data, headers) => {
   try {
     const url = `${process.env.REACT_APP_FOODTRUCKS_SERVER_URL}/users/login/`;
@@ -35,6 +37,7 @@ export const logoutAPI = async (data, headers) => {
   }
 };
 
+// -- users
 export const getUserAPI = async (headers, uuid) => {
   try {
     const url = `${process.env.REACT_APP_FOODTRUCKS_SERVER_URL}/users/${uuid}/`;
@@ -90,6 +93,35 @@ export const updateImageAPI = async (data, headers) => {
       url,
       data,
       headers,
+    });
+    if (res.status === 200) return { status: 'success', data: res.data };
+  } catch (err) {
+    console.log(err);
+    return { status: 'error', message: err.message };
+  }
+};
+
+// -- trucks
+export const getTrucksAPI = async () => {
+  try {
+    const url = `${process.env.REACT_APP_FOODTRUCKS_SERVER_URL}/foodtrucks`;
+    const res = await axios({
+      method: 'GET',
+      url,
+    });
+    if (res.status === 200) return { status: 'success', data: res.data };
+  } catch (err) {
+    console.log(err);
+    return { status: 'error', message: err.message };
+  }
+};
+
+export const getTruckAPI = async (slug) => {
+  try {
+    const url = `${process.env.REACT_APP_FOODTRUCKS_SERVER_URL}/foodtrucks/${slug}`;
+    const res = await axios({
+      method: 'GET',
+      url,
     });
     if (res.status === 200) return { status: 'success', data: res.data };
   } catch (err) {
