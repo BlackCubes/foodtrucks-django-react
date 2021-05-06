@@ -1,4 +1,6 @@
 import {
+  getTruckAPI,
+  getTrucksAPI,
   getUserAPI,
   loginAPI,
   logoutAPI,
@@ -18,6 +20,8 @@ import validateForm from './validate';
 export {
   fieldInputErrors,
   fieldInputProperties,
+  getTruckAPI,
+  getTrucksAPI,
   getUserAPI,
   headers,
   loginAPI,
