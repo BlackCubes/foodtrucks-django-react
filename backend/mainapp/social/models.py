@@ -40,4 +40,4 @@ class Like(models.Model):
         'foodtruck.Product', related_name='likes', on_delete=models.CASCADE)
 
     def __str__(self):
-        return f'{this.like} {this.emoji} for {this.product}'
+        return f'{self.like} {self.emoji} for {self.product}'
