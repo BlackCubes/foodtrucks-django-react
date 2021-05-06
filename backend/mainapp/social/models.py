@@ -19,7 +19,7 @@ class Emoji(models.Model):
         _('emoji updated at'), auto_now=True, blank=True, null=True)
 
     def __str__(self):
-        return self.emoji
+        return f'{self.emoji} ({self.name})'
 
 
 # LIKES
