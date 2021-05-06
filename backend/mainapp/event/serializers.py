@@ -1,5 +1,6 @@
 from rest_framework import serializers
 
+from foodtruck.models import Truck
 from .models import Event
 
 
@@ -12,7 +13,8 @@ class EventSerializer(serializers.ModelSerializer):
 
     Fields: uuid, date, start_time, end_time, and truck.
     """
-    truck = serializers.CharField(source='truck.slug')
+    truck = serializers.PrimaryKeyRelatedField(
+        queryset=Truck.objects.all(), many=True)
 
     class Meta:
         model = Event
