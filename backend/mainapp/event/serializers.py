@@ -13,8 +13,8 @@ class EventSerializer(serializers.ModelSerializer):
 
     Fields: uuid, date, start_time, end_time, and truck.
     """
-    truck = serializers.PrimaryKeyRelatedField(
-        queryset=Truck.objects.all(), many=True)
+    truck = serializers.SlugRelatedField(
+        slug_field='slug', queryset=Truck.objects.all(), many=True)
 
     class Meta:
         model = Event
