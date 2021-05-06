@@ -38,3 +38,6 @@ class Like(models.Model):
     emoji = models.ForeignKey(Emoji, on_delete=models.CASCADE)
     product = models.ForeignKey(
         'foodtruck.Product', related_name='likes', on_delete=models.CASCADE)
+
+    def __str__(self):
+        return f'{this.like} {this.emoji} for {this.product}'
