@@ -19,7 +19,7 @@ class Emoji(models.Model):
         _('emoji updated at'), auto_now=True, blank=True, null=True)
 
     def __str__(self):
-        return self.emoji
+        return f'{self.emoji} ({self.name})'
 
 
 # LIKES
@@ -38,3 +38,6 @@ class Like(models.Model):
     emoji = models.ForeignKey(Emoji, on_delete=models.CASCADE)
     product = models.ForeignKey(
         'foodtruck.Product', related_name='likes', on_delete=models.CASCADE)
+
+    def __str__(self):
+        return f'{self.like} {self.emoji} for {self.product}'

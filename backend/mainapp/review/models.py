@@ -18,3 +18,6 @@ class Review(models.Model):
         'foodtruck.Product', related_name='reviews', on_delete=models.CASCADE)
     user = models.ForeignKey(
         'user.CustomUser', related_name='reviews', on_delete=models.CASCADE)
+
+    def __str__(self):
+        return f'Review on {self.product}'

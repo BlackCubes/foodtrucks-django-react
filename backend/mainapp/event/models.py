@@ -16,3 +16,6 @@ class Event(models.Model):
     end_time = models.TimeField(_('end time'))
     truck = models.ManyToManyField(
         'foodtruck.Truck', related_name='events')
+
+    def __str__(self):
+        return f'Event Date: {self.date}'
