@@ -11,25 +11,27 @@ import {
   ProfilePage,
 } from './containers';
 
-import AuthProvider from './providers';
+import { AuthProvider, TruckProvider } from './providers';
 
 function App() {
   return (
     <Router>
       <AuthProvider>
-        <NavbarContainer />
-        <Main>
-          <Switch>
-            <Route exact path="/login">
-              <LoginPage FormContainerComponent={FormContainer} />
-            </Route>
+        <TruckProvider>
+          <NavbarContainer />
+          <Main>
+            <Switch>
+              <Route exact path="/login">
+                <LoginPage FormContainerComponent={FormContainer} />
+              </Route>
 
-            <Route exact path="/myProfile">
-              <ProfilePage FormContainerComponent={FormContainer} />
-            </Route>
-          </Switch>
-        </Main>
-        <FooterContainer />
+              <Route exact path="/myProfile">
+                <ProfilePage FormContainerComponent={FormContainer} />
+              </Route>
+            </Switch>
+          </Main>
+          <FooterContainer />
+        </TruckProvider>
       </AuthProvider>
     </Router>
   );
