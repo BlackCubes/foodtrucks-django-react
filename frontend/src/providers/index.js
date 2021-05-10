@@ -1,3 +1,4 @@
 import AuthProvider from './AuthProvider';
+import TruckProvider from './TruckProvider';
 
-export default AuthProvider;
+export { AuthProvider, TruckProvider };
