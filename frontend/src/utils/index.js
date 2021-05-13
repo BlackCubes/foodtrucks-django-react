@@ -1,4 +1,6 @@
 import {
+  getProductAPI,
+  getProductsAPI,
   getTruckAPI,
   getTrucksAPI,
   getUserAPI,
@@ -20,6 +22,8 @@ import validateForm from './validate';
 export {
   fieldInputErrors,
   fieldInputProperties,
+  getProductAPI,
+  getProductsAPI,
   getTruckAPI,
   getTrucksAPI,
   getUserAPI,
