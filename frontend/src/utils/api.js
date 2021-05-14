@@ -160,7 +160,7 @@ export const getProductAPI = async (slug) => {
 };
 
 // -- socials
-export const getEmojis = async () => {
+export const getEmojisAPI = async () => {
   try {
     const url = `${process.env.REACT_APP_FOODTRUCKS_SERVER_URL}/socials/emojis/`;
     const res = await axios({
@@ -175,7 +175,7 @@ export const getEmojis = async () => {
   }
 };
 
-export const getLikes = async () => {
+export const getLikesAPI = async () => {
   try {
     const url = `${process.env.REACT_APP_FOODTRUCKS_SERVER_URL}/socials/`;
     const res = await axios({
@@ -190,7 +190,7 @@ export const getLikes = async () => {
   }
 };
 
-export const createLike = async (data) => {
+export const createLikeAPI = async (data) => {
   try {
     const url = `${process.env.REACT_APP_FOODTRUCKS_SERVER_URL}/socials/`;
     const res = await axios({
