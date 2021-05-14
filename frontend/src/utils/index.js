@@ -1,4 +1,7 @@
 import {
+  createLike,
+  getEmojis,
+  getLikes,
   getProductAPI,
   getProductsAPI,
   getTruckAPI,
@@ -20,8 +23,11 @@ import parseJwt from './parseJwt';
 import validateForm from './validate';
 
 export {
+  createLike,
   fieldInputErrors,
   fieldInputProperties,
+  getEmojis,
+  getLikes,
   getProductAPI,
   getProductsAPI,
   getTruckAPI,
