@@ -58,7 +58,13 @@ const ReviewProvider = ({ children }) => {
 
       const apiData = await deleteReviewAPI(headers(currentAccessToken), uuid);
 
-      if (apiData.status === 'success') setApiReviewSuccess('Review deleted!');
+      if (apiData.status === 'success') {
+        setUserReviews(userReviews.filter((review) => review.uuid !== uuid));
+        setProductReviews(
+          productReviews.filter((review) => review.uuid !== uuid)
+        );
+        setApiReviewSuccess('Review deleted!');
+      }
 
       if (apiData.status === 'fail' || apiData.status === 'error')
         throw new Error(apiData.message);
