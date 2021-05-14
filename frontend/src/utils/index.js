@@ -1,5 +1,9 @@
 import {
+  createLikeAPI,
+  getEmojisAPI,
+  getLikesAPI,
   getProductAPI,
+  getProductLikesAPI,
   getProductsAPI,
   getTruckAPI,
   getTrucksAPI,
@@ -20,9 +24,13 @@ import parseJwt from './parseJwt';
 import validateForm from './validate';
 
 export {
+  createLikeAPI,
   fieldInputErrors,
   fieldInputProperties,
+  getEmojisAPI,
+  getLikesAPI,
   getProductAPI,
+  getProductLikesAPI,
   getProductsAPI,
   getTruckAPI,
   getTrucksAPI,
