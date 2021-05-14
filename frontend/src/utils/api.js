@@ -220,3 +220,54 @@ export const createLikeAPI = async (data) => {
     return { status: 'error', message: err.message };
   }
 };
+
+// -- reviews
+export const createReviewAPI = async (data, headers) => {
+  try {
+    const url = `${process.env.REACT_APP_FOODTRUCKS_SERVER_URL}/reviews/`;
+    const res = await axios({
+      method: 'POST',
+      url,
+      data,
+      headers,
+    });
+
+    if (res.status === 201) return { status: 'success', data: res.data };
+  } catch (err) {
+    console.log(err);
+    return { status: 'error', message: err.message };
+  }
+};
+
+export const updateReviewAPI = async (data, headers, uuid) => {
+  try {
+    const url = `${process.env.REACT_APP_FOODTRUCKS_SERVER_URL}/reviews/${uuid}`;
+    const res = await axios({
+      method: 'PATCH',
+      url,
+      data,
+      headers,
+    });
+
+    if (res.status === 200) return { status: 'success', data: res.data };
+  } catch (err) {
+    console.log(err);
+    return { status: 'error', message: err.message };
+  }
+};
+
+export const deleteReviewAPI = async (headers, uuid) => {
+  try {
+    const url = `${process.env.REACT_APP_FOODTRUCKS_SERVER_URL}/reviews/${uuid}`;
+    const res = await axios({
+      method: 'DELETE',
+      url,
+      headers,
+    });
+
+    if (res.status === 204) return { status: 'success' };
+  } catch (err) {
+    console.log(err);
+    return { status: 'error', message: err.message };
+  }
+};
