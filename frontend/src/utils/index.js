@@ -1,5 +1,7 @@
 import {
   createLikeAPI,
+  createReviewAPI,
+  deleteReviewAPI,
   getEmojisAPI,
   getLikesAPI,
   getProductAPI,
@@ -13,6 +15,7 @@ import {
   updateImageAPI,
   updatePasswordAPI,
   updateProfileAPI,
+  updateReviewAPI,
 } from './api';
 
 import { fieldInputErrors, fieldInputProperties } from './fieldPropHandler';
@@ -25,6 +28,8 @@ import validateForm from './validate';
 
 export {
   createLikeAPI,
+  createReviewAPI,
+  deleteReviewAPI,
   fieldInputErrors,
   fieldInputProperties,
   getEmojisAPI,
@@ -42,5 +47,6 @@ export {
   updateImageAPI,
   updatePasswordAPI,
   updateProfileAPI,
+  updateReviewAPI,
   validateForm,
 };
