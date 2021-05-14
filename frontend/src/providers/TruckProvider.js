@@ -3,12 +3,45 @@ import PropTypes from 'prop-types';
 
 import { TruckContext } from '../context';
 
-import { getTrucksAPI, getTruckAPI } from '../utils';
+import {
+  getProductAPI,
+  getProductsAPI,
+  getTrucksAPI,
+  getTruckAPI,
+} from '../utils';
 
 const TruckProvider = ({ children }) => {
+  const [products, setProducts] = useState(null);
+  const [product, setProduct] = useState(null);
   const [trucks, setTrucks] = useState(null);
   const [truck, setTruck] = useState(null);
   const [apiTruckErr, setApiTruckErr] = useState(null);
+
+  const getProducts = async () => {
+    try {
+      const apiData = await getProductsAPI();
+
+      if (apiData.status === 'success') setProducts(apiData.data);
+
+      if (apiData.status === 'fail' || apiData.status === 'error')
+        throw new Error(apiData.message);
+    } catch (err) {
+      setApiTruckErr(err.message);
+    }
+  };
+
+  const getProduct = async (slug) => {
+    try {
+      const apiData = await getProductAPI(slug);
+
+      if (apiData.status === 'success') setProduct(apiData.data);
+
+      if (apiData.status === 'fail' || apiData.status === 'error')
+        throw new Error(apiData.message);
+    } catch (err) {
+      setApiTruckErr(err.message);
+    }
+  };
 
   const getTrucks = async () => {
     try {
@@ -44,7 +77,19 @@ const TruckProvider = ({ children }) => {
   }, [apiTruckErr]);
 
   return (
-    <TruckContext.Provider value={{ trucks, truck, getTrucks, getTruck }}>
+    <TruckContext.Provider
+      value={{
+        products,
+        product,
+        trucks,
+        truck,
+        getProducts,
+        getProduct,
+        getTrucks,
+        getTruck,
+        apiTruckErr,
+      }}
+    >
       {children}
     </TruckContext.Provider>
   );
