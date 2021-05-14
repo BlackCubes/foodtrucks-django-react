@@ -133,7 +133,7 @@ export const getTruckAPI = async (slug) => {
 // -- products
 export const getProductsAPI = async () => {
   try {
-    const url = `${process.env.REACT_APP_FOODTRUCKS_SERVER_URL}/products/`;
+    const url = `${process.env.REACT_APP_FOODTRUCKS_SERVER_URL}/foodtrucks/products/`;
     const res = await axios({
       method: 'GET',
       url,
@@ -147,7 +147,7 @@ export const getProductsAPI = async () => {
 
 export const getProductAPI = async (slug) => {
   try {
-    const url = `${process.env.REACT_APP_FOODTRUCKS_SERVER_URL}/products/${slug}`;
+    const url = `${process.env.REACT_APP_FOODTRUCKS_SERVER_URL}/foodtrucks/products/${slug}`;
     const res = await axios({
       method: 'GET',
       url,
@@ -163,6 +163,21 @@ export const getProductAPI = async (slug) => {
 export const getEmojisAPI = async () => {
   try {
     const url = `${process.env.REACT_APP_FOODTRUCKS_SERVER_URL}/socials/emojis/`;
+    const res = await axios({
+      method: 'GET',
+      url,
+    });
+
+    if (res.status === 200) return { status: 'success', data: res.data };
+  } catch (err) {
+    console.log(err);
+    return { status: 'error', message: err.message };
+  }
+};
+
+export const getProductLikesAPI = async (slug) => {
+  try {
+    const url = `${process.env.REACT_APP_FOODTRUCKS_SERVER_URL}/foodtrucks/products/${slug}/socials/`;
     const res = await axios({
       method: 'GET',
       url,
