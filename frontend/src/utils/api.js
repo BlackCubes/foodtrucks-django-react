@@ -158,3 +158,50 @@ export const getProductAPI = async (slug) => {
     return { status: 'error', message: err.message };
   }
 };
+
+// -- socials
+export const getEmojis = async () => {
+  try {
+    const url = `${process.env.REACT_APP_FOODTRUCKS_SERVER_URL}/socials/emojis/`;
+    const res = await axios({
+      method: 'GET',
+      url,
+    });
+
+    if (res.status === 200) return { status: 'success', data: res.data };
+  } catch (err) {
+    console.log(err);
+    return { status: 'error', message: err.message };
+  }
+};
+
+export const getLikes = async () => {
+  try {
+    const url = `${process.env.REACT_APP_FOODTRUCKS_SERVER_URL}/socials/`;
+    const res = await axios({
+      method: 'GET',
+      url,
+    });
+
+    if (res.status === 200) return { status: 'success', data: res.data };
+  } catch (err) {
+    console.log(err);
+    return { status: 'error', message: err.message };
+  }
+};
+
+export const createLike = async (data) => {
+  try {
+    const url = `${process.env.REACT_APP_FOODTRUCKS_SERVER_URL}/socials/`;
+    const res = await axios({
+      method: 'POST',
+      url,
+      data,
+    });
+
+    if (res.status === 201) return { status: 'success', data: res.data };
+  } catch (err) {
+    console.log(err);
+    return { status: 'error', message: err.message };
+  }
+};
