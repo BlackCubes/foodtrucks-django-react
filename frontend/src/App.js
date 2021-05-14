@@ -11,7 +11,12 @@ import {
   ProfilePage,
 } from './containers';
 
-import { AuthProvider, SocialProvider, TruckProvider } from './providers';
+import {
+  AuthProvider,
+  ReviewProvider,
+  SocialProvider,
+  TruckProvider,
+} from './providers';
 
 function App() {
   return (
@@ -19,19 +24,21 @@ function App() {
       <AuthProvider>
         <TruckProvider>
           <SocialProvider>
-            <NavbarContainer />
-            <Main>
-              <Switch>
-                <Route exact path="/login">
-                  <LoginPage FormContainerComponent={FormContainer} />
-                </Route>
+            <ReviewProvider>
+              <NavbarContainer />
+              <Main>
+                <Switch>
+                  <Route exact path="/login">
+                    <LoginPage FormContainerComponent={FormContainer} />
+                  </Route>
 
-                <Route exact path="/myProfile">
-                  <ProfilePage FormContainerComponent={FormContainer} />
-                </Route>
-              </Switch>
-            </Main>
-            <FooterContainer />
+                  <Route exact path="/myProfile">
+                    <ProfilePage FormContainerComponent={FormContainer} />
+                  </Route>
+                </Switch>
+              </Main>
+              <FooterContainer />
+            </ReviewProvider>
           </SocialProvider>
         </TruckProvider>
       </AuthProvider>
