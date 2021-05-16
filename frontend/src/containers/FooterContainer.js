@@ -1,17 +1,15 @@
 import React from 'react';
 import { useLocation } from 'react-router-dom';
 
-import { AccountFooter, Footer } from '../components/Footer';
-
 const FooterContainer = () => {
   const location = useLocation();
 
   return location.pathname === '/login' ? (
-    <AccountFooter />
-  ) : location.pathname === '/checkout' ? (
-    <AccountFooter />
+    <div>Hello Account Footer</div>
+  ) : location.pathname === '/myProfile' ? (
+    <div>Hello Account Footer</div>
   ) : (
-    <Footer />
+    <div>Hello Regular Footer</div>
   );
 };
 

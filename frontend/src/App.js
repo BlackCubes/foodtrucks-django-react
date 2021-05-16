@@ -1,8 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
-import { Main } from './common/Base';
-
 import {
   FooterContainer,
   FormContainer,
@@ -26,17 +24,15 @@ function App() {
           <SocialProvider>
             <ReviewProvider>
               <NavbarContainer />
-              <Main>
-                <Switch>
-                  <Route exact path="/login">
-                    <LoginPage FormContainerComponent={FormContainer} />
-                  </Route>
+              <Switch>
+                <Route exact path="/login">
+                  <LoginPage FormContainerComponent={FormContainer} />
+                </Route>
 
-                  <Route exact path="/myProfile">
-                    <ProfilePage FormContainerComponent={FormContainer} />
-                  </Route>
-                </Switch>
-              </Main>
+                <Route exact path="/myProfile">
+                  <ProfilePage FormContainerComponent={FormContainer} />
+                </Route>
+              </Switch>
               <FooterContainer />
             </ReviewProvider>
           </SocialProvider>
