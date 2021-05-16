@@ -2,10 +2,6 @@ import React, { useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
-import { HeadingQuaternary } from '../common/Typography';
-
-import { Snackbar } from '../components';
-
 import { useAuthContext } from '../context';
 
 const changeProfileFormFields = [
@@ -107,7 +103,7 @@ const ProfilePage = ({ FormContainerComponent }) => {
   return (
     <div>
       {!currentUser ? (
-        <HeadingQuaternary>Loading...</HeadingQuaternary>
+        <div>Loading...</div>
       ) : (
         <>
           <FormContainerComponent
@@ -122,11 +118,9 @@ const ProfilePage = ({ FormContainerComponent }) => {
         </>
       )}
 
-      {!apiAuthErr ? null : <Snackbar color="red">{apiAuthErr}</Snackbar>}
+      {!apiAuthErr ? null : apiAuthErr}
 
-      {!apiAuthSuccess ? null : (
-        <Snackbar color="red">{apiAuthSuccess}</Snackbar>
-      )}
+      {!apiAuthSuccess ? null : apiAuthSuccess}
     </div>
   );
 };
