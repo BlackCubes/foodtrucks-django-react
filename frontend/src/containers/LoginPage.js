@@ -93,6 +93,7 @@ const LoginPage = ({ FormContainerComponent }) => {
               type="password"
               name="password"
               id="password"
+              className="border border-transparent py-2 px-4 rounded-lg shadow-lg focus:outline-none focus:ring-2 focus:ring-blue-300 focus:border-transparent"
               values={values.password || ''}
               onChange={handleTestChange}
               required
