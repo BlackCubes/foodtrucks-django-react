@@ -35,8 +35,8 @@ const loginFormFields = [
 
 const LoginPage = ({ FormContainerComponent }) => {
   const { checkAuth, login, apiAuthErr } = useAuthContext();
-  const { values, setValues } = useState({});
-  const { errors, setErrors } = useState({});
+  const [values, setValues] = useState({});
+  const [errors, setErrors] = useState({});
   const history = useHistory();
 
   if (checkAuth()) history.push('/');
