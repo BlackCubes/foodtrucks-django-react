@@ -75,7 +75,7 @@ const LoginPage = ({ FormContainerComponent }) => {
               type="email"
               name="email"
               id="email"
-              className="border border-transparent p-6 rounded-lg shadow-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+              className="border border-transparent p-4 rounded-lg shadow-lg focus:outline-none focus:ring-3 focus:ring-blue-300 focus:border-transparent"
               values={values.email || ''}
               onChange={handleTestChange}
               required
