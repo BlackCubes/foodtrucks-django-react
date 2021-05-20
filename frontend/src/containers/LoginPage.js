@@ -70,7 +70,7 @@ const LoginPage = ({ FormContainerComponent }) => {
 
       <form onSubmit={onTestSubmit} noValidate>
         <div>
-          <label htmlFor="email" className="flex flex-col">
+          <label htmlFor="email" className="flex flex-col relative">
             <input
               type="email"
               name="email"
@@ -81,14 +81,16 @@ const LoginPage = ({ FormContainerComponent }) => {
               required
             />
 
-            <span data-text="email">Email</span>
+            <span className="absolute" data-text="email">
+              Email
+            </span>
 
             <span>{errors.email || 'Noice!'}</span>
           </label>
         </div>
 
         <div>
-          <label htmlFor="password" className="flex flex-col">
+          <label htmlFor="password" className="flex flex-col relative">
             <input
               type="password"
               name="password"
@@ -99,7 +101,9 @@ const LoginPage = ({ FormContainerComponent }) => {
               required
             />
 
-            <span data-text="password">Password</span>
+            <span className="absolute" data-text="password">
+              Password
+            </span>
 
             <span>{errors.password || 'Noice!'}</span>
           </label>
