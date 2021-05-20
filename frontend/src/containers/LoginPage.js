@@ -70,7 +70,7 @@ const LoginPage = ({ FormContainerComponent }) => {
 
       <form onSubmit={onTestSubmit} noValidate>
         <div>
-          <label htmlFor="email" className="flex flex-col relative">
+          <label htmlFor="email" className="flex flex-col relative mb-2">
             <input
               type="email"
               name="email"
@@ -90,7 +90,7 @@ const LoginPage = ({ FormContainerComponent }) => {
         </div>
 
         <div>
-          <label htmlFor="password" className="flex flex-col relative">
+          <label htmlFor="password" className="flex flex-col relative mb-2">
             <input
               type="password"
               name="password"
