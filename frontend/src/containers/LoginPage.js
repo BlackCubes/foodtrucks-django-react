@@ -85,7 +85,7 @@ const LoginPage = ({ FormContainerComponent }) => {
               Email
             </span>
 
-            <span>{errors.email || 'Noice!'}</span>
+            <span className="text-base">{errors.email || 'Noice!'}</span>
           </label>
         </div>
 
@@ -105,7 +105,7 @@ const LoginPage = ({ FormContainerComponent }) => {
               Password
             </span>
 
-            <span>{errors.password || 'Noice!'}</span>
+            <span className="text-base">{errors.password || 'Noice!'}</span>
           </label>
         </div>
 
