@@ -81,7 +81,7 @@ const LoginPage = ({ FormContainerComponent }) => {
               required
             />
 
-            <span className="absolute" data-text="email">
+            <span className="absolute text-xl py-2 px-4" data-text="email">
               Email
             </span>
 
@@ -101,7 +101,7 @@ const LoginPage = ({ FormContainerComponent }) => {
               required
             />
 
-            <span className="absolute" data-text="password">
+            <span className="absolute text-xl py-2 px-4" data-text="password">
               Password
             </span>
 
