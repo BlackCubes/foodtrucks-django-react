@@ -68,7 +68,7 @@ const LoginPage = ({ FormContainerComponent }) => {
         formFields={loginFormFields}
       />
 
-      <div>
+      <div className="mx-4">
         <div>
           <h3 className="text-3xl">Sign in to your account</h3>
         </div>
