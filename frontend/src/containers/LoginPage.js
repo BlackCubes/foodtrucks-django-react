@@ -68,60 +68,66 @@ const LoginPage = ({ FormContainerComponent }) => {
         formFields={loginFormFields}
       />
 
-      <form onSubmit={onTestSubmit} noValidate>
-        <div className="mt-6">
-          <label htmlFor="email" className="flex flex-col relative mb-2">
-            <input
-              type="email"
-              name="email"
-              id="email"
-              className="border border-transparent text-xl py-2 px-4 rounded-lg shadow-lg focus:outline-none focus:ring-2 focus:ring-blue-300 focus:border-transparent"
-              values={values.email || ''}
-              onChange={handleTestChange}
-              required
-            />
-
-            <span className="absolute text-xl py-2 px-4" data-text="email">
-              Email
-            </span>
-
-            <span className="text-base mt-2 px-4">
-              {errors.email || 'Noice!'}
-            </span>
-          </label>
+      <div>
+        <div>
+          <h3>Sign in to your account</h3>
         </div>
 
-        <div className="mt-6">
-          <label htmlFor="password" className="flex flex-col relative mb-2">
-            <input
-              type="password"
-              name="password"
-              id="password"
-              className="border border-transparent text-xl py-2 px-4 rounded-lg shadow-lg focus:outline-none focus:ring-2 focus:ring-blue-300 focus:border-transparent"
-              values={values.password || ''}
-              onChange={handleTestChange}
-              required
-            />
+        <form onSubmit={onTestSubmit} noValidate>
+          <div className="mt-6">
+            <label htmlFor="email" className="flex flex-col relative mb-2">
+              <input
+                type="email"
+                name="email"
+                id="email"
+                className="border border-transparent text-xl py-2 px-4 rounded-lg shadow-lg focus:outline-none focus:ring-2 focus:ring-blue-300 focus:border-transparent"
+                values={values.email || ''}
+                onChange={handleTestChange}
+                required
+              />
 
-            <span className="absolute text-xl py-2 px-4" data-text="password">
-              Password
-            </span>
+              <span className="absolute text-xl py-2 px-4" data-text="email">
+                Email
+              </span>
 
-            <span className="text-base mt-2 px-4">
-              {errors.password || 'Noice!'}
-            </span>
-          </label>
-        </div>
+              <span className="text-base mt-2 px-4">
+                {errors.email || 'Noice!'}
+              </span>
+            </label>
+          </div>
 
-        <div className="mt-6">
-          <button
-            type="submit"
-            className="border border-solid border-blue-900 text-xl w-full py-2 px-4 rounded-lg shadow-lg text-center hover:border-0 hover:bg-blue-900 hover:text-white"
-          >
-            Login
-          </button>
-        </div>
-      </form>
+          <div className="mt-6">
+            <label htmlFor="password" className="flex flex-col relative mb-2">
+              <input
+                type="password"
+                name="password"
+                id="password"
+                className="border border-transparent text-xl py-2 px-4 rounded-lg shadow-lg focus:outline-none focus:ring-2 focus:ring-blue-300 focus:border-transparent"
+                values={values.password || ''}
+                onChange={handleTestChange}
+                required
+              />
+
+              <span className="absolute text-xl py-2 px-4" data-text="password">
+                Password
+              </span>
+
+              <span className="text-base mt-2 px-4">
+                {errors.password || 'Noice!'}
+              </span>
+            </label>
+          </div>
+
+          <div className="mt-6">
+            <button
+              type="submit"
+              className="border border-solid border-blue-900 text-xl w-full py-2 px-4 rounded-lg shadow-lg text-center hover:border-0 hover:bg-blue-900 hover:text-white"
+            >
+              Login
+            </button>
+          </div>
+        </form>
+      </div>
 
       {!apiAuthErr ? null : apiAuthErr}
     </>
