@@ -70,7 +70,7 @@ const LoginPage = ({ FormContainerComponent }) => {
 
       <div>
         <div>
-          <h3>Sign in to your account</h3>
+          <h3 className="text-3xl">Sign in to your account</h3>
         </div>
 
         <form onSubmit={onTestSubmit} noValidate>
