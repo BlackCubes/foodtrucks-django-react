@@ -116,7 +116,7 @@ const LoginPage = ({ FormContainerComponent }) => {
         <div className="mt-6">
           <button
             type="submit"
-            className="border border-solid border-blue-300 text-xl w-full py-2 px-4 rounded-lg text-center"
+            className="border border-solid border-blue-900 text-xl w-full py-2 px-4 rounded-lg shadow-lg text-center"
           >
             Login
           </button>
