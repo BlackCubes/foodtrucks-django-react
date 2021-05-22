@@ -68,7 +68,7 @@ const LoginPage = ({ FormContainerComponent }) => {
         formFields={loginFormFields}
       />
 
-      <div className="mx-4 py-8 px-6">
+      <div className="border mx-4 py-8 px-6 rounded shadow-md">
         <div className="mb-10">
           <h3 className="text-3xl">Sign in to your account</h3>
         </div>
