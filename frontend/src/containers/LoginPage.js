@@ -80,7 +80,7 @@ const LoginPage = ({ FormContainerComponent }) => {
                 type="email"
                 name="email"
                 id="email"
-                className="border border-transparent text-xl py-2 px-4 rounded-lg shadow-lg focus:outline-none focus:ring-2 focus:ring-blue-300 focus:border-transparent"
+                className="border text-xl py-2 px-4 rounded-lg shadow-inner focus:outline-none focus:ring-2 focus:ring-blue-300 focus:border-transparent"
                 values={values.email || ''}
                 onChange={handleTestChange}
                 required
@@ -102,7 +102,7 @@ const LoginPage = ({ FormContainerComponent }) => {
                 type="password"
                 name="password"
                 id="password"
-                className="border border-transparent text-xl py-2 px-4 rounded-lg shadow-lg focus:outline-none focus:ring-2 focus:ring-blue-300 focus:border-transparent"
+                className="border text-xl py-2 px-4 rounded-lg shadow-inner focus:outline-none focus:ring-2 focus:ring-blue-300 focus:border-transparent"
                 values={values.password || ''}
                 onChange={handleTestChange}
                 required
