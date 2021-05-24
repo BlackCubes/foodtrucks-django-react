@@ -98,7 +98,7 @@ const LoginPage = ({ FormContainerComponent }) => {
               <PlaceholderStyled data-text="email">Email</PlaceholderStyled>
 
               <MessageStyled error={errors.email || null}>
-                {errors.email || 'Noice!'}
+                {errors.email || ''}
               </MessageStyled>
             </LabelStyled>
           </div>
