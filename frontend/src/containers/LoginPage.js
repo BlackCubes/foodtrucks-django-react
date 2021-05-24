@@ -79,7 +79,7 @@ const LoginPage = ({ FormContainerComponent }) => {
 
       <div className="border mx-4 py-8 px-6 rounded shadow-md">
         <div className="mb-10">
-          <h3 className="text-3xl">Sign in to your account</h3>
+          <h3 className="text-3xl text-center">Sign in to your account</h3>
         </div>
 
         <form onSubmit={onTestSubmit} noValidate>
