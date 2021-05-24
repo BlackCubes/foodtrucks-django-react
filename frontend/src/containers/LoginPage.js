@@ -117,7 +117,9 @@ const LoginPage = ({ FormContainerComponent }) => {
                 Password
               </PlaceholderStyled>
 
-              <MessageStyled>{errors.password || ''}</MessageStyled>
+              <MessageStyled error={errors.email || null}>
+                {errors.password || ''}
+              </MessageStyled>
             </LabelStyled>
           </div>
 
