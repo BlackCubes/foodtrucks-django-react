@@ -18,6 +18,8 @@ import {
   updateReviewAPI,
 } from './api';
 
+import emptyInput from './emptyInput';
+
 import { fieldInputErrors, fieldInputProperties } from './fieldPropHandler';
 
 import headers from './headers';
@@ -30,6 +32,7 @@ export {
   createLikeAPI,
   createReviewAPI,
   deleteReviewAPI,
+  emptyInput,
   fieldInputErrors,
   fieldInputProperties,
   getEmojisAPI,
