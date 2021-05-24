@@ -5,4 +5,5 @@ export default styled.span.attrs(() => ({
 }))`
   top: 9px;
   left: 17px;
+  transition: all 0.25s ease-in-out;
 `;
