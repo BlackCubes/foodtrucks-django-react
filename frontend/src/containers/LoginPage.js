@@ -44,7 +44,10 @@ const LoginPage = ({ FormContainerComponent }) => {
   const onSubmission = (data) => login(data);
 
   const handleTestChange = (e) => {
-    const { name, value } = e.target;
+    const { name, value, classList } = e.target;
+
+    if (value.length > 0) classList.add('not-empty');
+    else classList.remove('not-empty');
 
     validateForm(name, value, setErrors);
 
