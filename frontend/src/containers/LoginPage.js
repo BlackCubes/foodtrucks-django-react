@@ -2,6 +2,13 @@ import React, { useEffect, useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
+import {
+  InputStyled,
+  LabelStyled,
+  MessageStyled,
+  PlaceholderStyled,
+} from '../common/Inputs';
+
 import { useAuthContext } from '../context';
 
 import { emptyInput, validateForm } from '../utils';
@@ -77,55 +84,39 @@ const LoginPage = ({ FormContainerComponent }) => {
 
         <form onSubmit={onTestSubmit} noValidate>
           <div className="mt-6">
-            <label htmlFor="email" className="flex flex-col relative mb-2">
-              <input
+            <LabelStyled htmlFor="email">
+              <InputStyled
                 type="email"
                 name="email"
                 id="email"
-                className="border text-xl py-2 px-4 rounded-lg shadow-inner focus:outline-none focus:ring-2 focus:ring-blue-300 focus:border-transparent"
                 values={values.email || ''}
                 onChange={handleTestChange}
                 required
               />
 
-              <span
-                className="absolute text-xl"
-                data-text="email"
-                style={{ top: '9px', left: '17px' }}
-              >
-                Email
-              </span>
+              <PlaceholderStyled data-text="email">Email</PlaceholderStyled>
 
-              <span className="text-base mt-2 px-4">
-                {errors.email || 'Noice!'}
-              </span>
-            </label>
+              <MessageStyled>{errors.email || 'Noice!'}</MessageStyled>
+            </LabelStyled>
           </div>
 
           <div className="mt-6">
-            <label htmlFor="password" className="flex flex-col relative mb-2">
-              <input
+            <LabelStyled htmlFor="password">
+              <InputStyled
                 type="password"
                 name="password"
                 id="password"
-                className="border text-xl py-2 px-4 rounded-lg shadow-inner focus:outline-none focus:ring-2 focus:ring-blue-300 focus:border-transparent"
                 values={values.password || ''}
                 onChange={handleTestChange}
                 required
               />
 
-              <span
-                className="absolute text-xl"
-                data-text="password"
-                style={{ top: '9px', left: '17px' }}
-              >
+              <PlaceholderStyled data-text="password">
                 Password
-              </span>
+              </PlaceholderStyled>
 
-              <span className="text-base mt-2 px-4">
-                {errors.password || 'Noice!'}
-              </span>
-            </label>
+              <MessageStyled>{errors.password || ''}</MessageStyled>
+            </LabelStyled>
           </div>
 
           <div className="mt-6">
