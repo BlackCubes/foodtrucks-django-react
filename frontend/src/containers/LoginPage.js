@@ -83,7 +83,7 @@ const LoginPage = ({ FormContainerComponent }) => {
         </div>
 
         <form onSubmit={onTestSubmit} noValidate>
-          <div className="mt-6">
+          <div className="mt-9">
             <LabelStyled htmlFor="email">
               <InputStyled
                 type="email"
@@ -100,7 +100,7 @@ const LoginPage = ({ FormContainerComponent }) => {
             </LabelStyled>
           </div>
 
-          <div className="mt-6">
+          <div className="mt-9">
             <LabelStyled htmlFor="password">
               <InputStyled
                 type="password"
@@ -119,7 +119,7 @@ const LoginPage = ({ FormContainerComponent }) => {
             </LabelStyled>
           </div>
 
-          <div className="mt-6">
+          <div className="mt-9">
             <button
               type="submit"
               className="border border-solid border-blue-900 text-xl w-full py-2 px-4 rounded-lg shadow-lg text-center hover:border-0 hover:bg-blue-900 hover:text-white focus:outline-none focus:ring-2 focus:ring-blue-300 focus:border-transparent"
