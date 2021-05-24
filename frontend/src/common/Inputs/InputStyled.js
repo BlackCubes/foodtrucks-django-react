@@ -8,4 +8,11 @@ export default styled.input.attrs(() => ({
     font-size: 1.1rem;
     top: -30px;
   }
+
+  &:focus {
+    & ~ span[data-text] {
+      font-size: 1.1rem;
+      top: -30px;
+    }
+  }
 `;
