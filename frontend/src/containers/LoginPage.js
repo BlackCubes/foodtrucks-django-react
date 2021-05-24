@@ -86,7 +86,11 @@ const LoginPage = ({ FormContainerComponent }) => {
                 required
               />
 
-              <span className="absolute text-xl" data-text="email">
+              <span
+                className="absolute text-xl"
+                data-text="email"
+                style={{ top: '9px', left: '17px' }}
+              >
                 Email
               </span>
 
@@ -108,7 +112,11 @@ const LoginPage = ({ FormContainerComponent }) => {
                 required
               />
 
-              <span className="absolute text-xl" data-text="password">
+              <span
+                className="absolute text-xl"
+                data-text="password"
+                style={{ top: '9px', left: '17px' }}
+              >
                 Password
               </span>
 
