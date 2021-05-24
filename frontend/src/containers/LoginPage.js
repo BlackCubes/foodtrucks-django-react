@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 
 import { useAuthContext } from '../context';
 
-import { validateForm } from '../utils';
+import { emptyInput, validateForm } from '../utils';
 
 const loginFormFields = [
   {
@@ -46,8 +46,7 @@ const LoginPage = ({ FormContainerComponent }) => {
   const handleTestChange = (e) => {
     const { name, value, classList } = e.target;
 
-    if (value.length > 0) classList.add('not-empty');
-    else classList.remove('not-empty');
+    emptyInput(value, classList);
 
     validateForm(name, value, setErrors);
 
