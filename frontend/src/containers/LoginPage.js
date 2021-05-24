@@ -90,6 +90,7 @@ const LoginPage = ({ FormContainerComponent }) => {
                 name="email"
                 id="email"
                 values={values.email || ''}
+                error={errors.email || null}
                 onChange={handleTestChange}
                 required
               />
@@ -109,6 +110,7 @@ const LoginPage = ({ FormContainerComponent }) => {
                 name="password"
                 id="password"
                 values={values.password || ''}
+                error={errors.password || null}
                 onChange={handleTestChange}
                 required
               />
@@ -117,7 +119,7 @@ const LoginPage = ({ FormContainerComponent }) => {
                 Password
               </PlaceholderStyled>
 
-              <MessageStyled error={errors.email || null}>
+              <MessageStyled error={errors.password || null}>
                 {errors.password || ''}
               </MessageStyled>
             </LabelStyled>
