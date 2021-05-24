@@ -10,12 +10,14 @@ export default styled.input.attrs((props) => ({
   &.not-empty ~ span[data-text] {
     font-size: 1.1rem;
     top: -30px;
+    left: 10px;
   }
 
   &:focus {
     & ~ span[data-text] {
       font-size: 1.1rem;
       top: -30px;
+      left: 10px;
     }
   }
 `;
