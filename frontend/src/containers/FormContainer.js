@@ -1,64 +1,95 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 
-// import { fieldInputErrors, fieldInputProperties, validateForm } from '../utils';
+import { Button, Inputs } from '../components';
+import { Form, FormGroup, FormTitle, FormWrapper } from '../components/Forms';
 
-const FormContainer = ({ onSubmit, formFields }) => {
-  // const [values, setValues] = useState({});
-  // const [errors, setErrors] = useState({});
-  console.log(onSubmit);
-  console.log(formFields);
+import {
+  emptyInput,
+  fieldInputErrors,
+  fieldInputProperties,
+  validateForm,
+} from '../utils';
 
-  // const handleChange = (e) => {
-  //   const { name, value } = e.target;
+const FormContainer = ({ onSubmit, formFields, formTitle, btnTitle }) => {
+  const [values, setValues] = useState({});
+  const [errors, setErrors] = useState({});
 
-  //   validateForm(name, value, setErrors);
+  const handleChange = (e) => {
+    const { name, value, classList } = e.target;
 
-  //   setValues((val) => ({ ...val, [name]: value }));
-  // };
+    emptyInput(value, classList);
 
-  // const checkErrors = (errorList) => {
-  //   let valid = true;
-  //   Object.values(errorList).forEach((err) => {
-  //     if (err.length) valid = false;
-  //   });
-  //   return valid;
-  // };
+    validateForm(name, value, setErrors);
 
-  // const handleSubmit = (e) => {
-  //   e.preventDefault();
-  //   if (checkErrors(errors)) {
-  //     onSubmit(values);
-  //     setValues({});
-  //   }
-  // };
+    setValues((val) => ({ ...val, [name]: value }));
+  };
 
-  // const inputProperties = formFields.map((prop) =>
-  //   fieldInputProperties({
-  //     type: prop.type,
-  //     name: prop.name,
-  //     groupClassName: prop.groupClassName,
-  //     id: prop.id,
-  //     errors: errors,
-  //     values: values,
-  //     placeholder: prop.placeholder,
-  //     onChange: handleChange,
-  //     noValidate: prop.noValidate,
-  //     message: prop.message,
-  //     addlstyle: prop.addlstyle,
-  //   })
-  // );
+  const checkErrors = (errorList) => {
+    let valid = true;
+    Object.values(errorList).forEach((err) => {
+      if (err.length) valid = false;
+    });
+    return valid;
+  };
 
-  // const inputErrors = formFields.map((prop) =>
-  //   fieldInputErrors(prop.name, errors)
-  // );
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (checkErrors(errors)) {
+      onSubmit(values);
+      setValues({});
+    }
+  };
 
-  return <div>Hello Form Container</div>;
+  const inputProperties = formFields.map((prop) =>
+    fieldInputProperties({
+      type: prop.type,
+      name: prop.name,
+      groupClassName: prop.groupClassName,
+      id: prop.id,
+      errors: errors,
+      values: values,
+      placeholder: prop.placeholder,
+      onChange: handleChange,
+      noValidate: prop.noValidate,
+      message: prop.message,
+      addlstyle: prop.addlstyle,
+    })
+  );
+
+  const inputErrors = formFields.map((prop) =>
+    fieldInputErrors(prop.name, errors)
+  );
+
+  return (
+    <FormWrapper>
+      <FormTitle>
+        <h3 className="text-3xl text-center">{formTitle}</h3>
+      </FormTitle>
+
+      <Form onSubmit={handleSubmit} noValidate>
+        {inputProperties.map((prop, key) => {
+          const ind = key;
+          return (
+            <FormGroup key={ind}>
+              <Inputs inputprop={prop} error={inputErrors[ind]} />
+            </FormGroup>
+          );
+        })}
+
+        <FormGroup>
+          <Button type="submit">{btnTitle}</Button>
+        </FormGroup>
+      </Form>
+    </FormWrapper>
+  );
 };
 
 FormContainer.propTypes = {
   onSubmit: PropTypes.func.isRequired,
   formFields: PropTypes.arrayOf(PropTypes.object).isRequired,
+  formTitle: PropTypes.string.isRequired,
+  btnTitle: PropTypes.string.isRequired,
 };
 
 export default FormContainer;
