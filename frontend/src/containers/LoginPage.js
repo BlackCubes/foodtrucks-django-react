@@ -19,24 +19,14 @@ const loginFormFields = [
     name: 'email',
     id: 'email',
     placeholder: 'Email',
-    message: "Let's go!",
-    addlstyle: {
-      width: '100%',
-      float: 'left',
-      padding: '0 0.75rem',
-    },
+    required: true,
   },
   {
     type: 'password',
     name: 'password',
     id: 'password',
     placeholder: 'Password',
-    message: "Let's go!",
-    addlstyle: {
-      width: '100%',
-      float: 'left',
-      padding: '0 0.75rem',
-    },
+    required: true,
   },
 ];
 
@@ -75,6 +65,8 @@ const LoginPage = ({ FormContainerComponent }) => {
       <FormContainerComponent
         onSubmit={onSubmission}
         formFields={loginFormFields}
+        formTitle="Sign in to your account"
+        btnTitle="Login"
       />
 
       <div className="border mx-4 py-8 px-6 rounded shadow-md">
