@@ -1,6 +1,6 @@
-import FormContainerStyled from './FormContainerStyled';
 import FormGroupStyled from './FormGroupStyled';
 import FormStyled from './FormStyled';
 import FormTitleStyled from './FormTitleStyled';
+import FormWrapperStyled from './FormWrapperStyled';
 
-export { FormContainerStyled, FormGroupStyled, FormStyled, FormTitleStyled };
+export { FormGroupStyled, FormStyled, FormTitleStyled, FormWrapperStyled };
