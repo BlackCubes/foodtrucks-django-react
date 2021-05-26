@@ -1,15 +1,12 @@
 export const fieldInputProperties = (prop) => ({
   type: prop.type || 'text',
   name: prop.name,
-  className: prop.errors[prop.name] ? 'error' : '',
-  groupClassName: prop.groupClassName || '',
   id: prop.id,
   value: prop.values[prop.name] || '',
+  error: prop.errors[prop.name] || null,
   placeholder: prop.placeholder,
   onChange: prop.onChange,
-  noValidate: prop.noValidate || true,
-  message: prop.message,
-  addlstyle: prop.addlstyle,
+  required: prop.required,
 });
 
 export const fieldInputErrors = (name, errors) =>
