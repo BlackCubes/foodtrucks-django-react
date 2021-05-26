@@ -45,15 +45,12 @@ const FormContainer = ({ onSubmit, formFields, formTitle, btnTitle }) => {
     fieldInputProperties({
       type: prop.type,
       name: prop.name,
-      groupClassName: prop.groupClassName,
       id: prop.id,
-      errors: errors,
       values: values,
+      errors: errors,
       placeholder: prop.placeholder,
       onChange: handleChange,
-      noValidate: prop.noValidate,
-      message: prop.message,
-      addlstyle: prop.addlstyle,
+      required: prop.required,
     })
   );
 
