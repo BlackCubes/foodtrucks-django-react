@@ -8,6 +8,7 @@ import {
   NavbarContainer,
   ProfilePage,
   RegisterPage,
+  TrucksPage,
 } from './containers';
 
 import {
@@ -26,6 +27,8 @@ function App() {
             <ReviewProvider>
               <NavbarContainer />
               <Switch>
+                <Route exact path="/trucks" component={TrucksPage} />
+
                 <Route exact path="/register">
                   <RegisterPage FormContainerComponent={FormContainer} />
                 </Route>
