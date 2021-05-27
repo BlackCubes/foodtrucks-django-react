@@ -3,6 +3,23 @@ import axios from 'axios';
 // FOODTRUCK APIs
 
 // -- authentication
+export const registerAPI = async (data) => {
+  try {
+    const url = `${process.env.REACT_APP_FOODTRUCKS_SERVER_URL}/users/register/`;
+
+    const res = await axios({
+      method: 'POST',
+      url,
+      data,
+    });
+
+    if (res.status === 201) return { status: 'success', data: res.data };
+  } catch (err) {
+    console.log(err.message);
+    return { status: 'error', message: err.message };
+  }
+};
+
 export const loginAPI = async (data, headers) => {
   try {
     const url = `${process.env.REACT_APP_FOODTRUCKS_SERVER_URL}/users/login/`;
