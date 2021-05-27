@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export default styled.span.attrs(() => ({
-  className: 'absolute text-xl',
+  className: 'absolute text-lg',
 }))`
   top: 9px;
   left: 17px;
