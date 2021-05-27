@@ -3,6 +3,7 @@ import FormContainer from './FormContainer';
 import LoginPage from './LoginPage';
 import NavbarContainer from './NavbarContainer';
 import ProfilePage from './ProfilePage';
+import RegisterPage from './RegisterPage';
 
 export {
   FooterContainer,
@@ -10,4 +11,5 @@ export {
   LoginPage,
   NavbarContainer,
   ProfilePage,
+  RegisterPage,
 };

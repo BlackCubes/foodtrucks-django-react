@@ -10,6 +10,7 @@ import {
   loginAPI,
   logoutAPI,
   parseJwt,
+  registerAPI,
   updateImageAPI,
   updatePasswordAPI,
   updateProfileAPI,
@@ -22,6 +23,23 @@ const AuthProvider = ({ children }) => {
   const [apiChangedProfile, setApiChangedProfile] = useState(null);
   const [apiChangedUserImage, setApiChangedUserImage] = useState(null);
   const history = useHistory();
+
+  const register = async (data) => {
+    try {
+      const apiData = await registerAPI(data);
+
+      if (apiData.status === 'success') {
+        setCurrentUser(apiData.data);
+        setApiAuthSuccess('You have successfully registered!');
+        history.push('/');
+      }
+
+      if (apiData.status === 'fail' || apiData.status === 'error')
+        throw new Error(apiData.message);
+    } catch (err) {
+      setApiAuthErr(err.message);
+    }
+  };
 
   const login = async (data) => {
     try {
@@ -182,6 +200,7 @@ const AuthProvider = ({ children }) => {
         login,
         logout,
         getCurrentUser,
+        register,
         updatePassword,
         updateProfile,
         updateImage,
