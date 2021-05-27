@@ -61,7 +61,7 @@ const FormContainer = ({ onSubmit, formFields, formTitle, btnTitle }) => {
   return (
     <FormWrapper>
       <FormTitle>
-        <h3 className="text-3xl text-center">{formTitle}</h3>
+        <h3 className="text-2xl text-center">{formTitle}</h3>
       </FormTitle>
 
       <Form onSubmit={handleSubmit} noValidate>
