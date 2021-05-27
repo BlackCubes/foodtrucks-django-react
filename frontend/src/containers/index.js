@@ -4,6 +4,7 @@ import LoginPage from './LoginPage';
 import NavbarContainer from './NavbarContainer';
 import ProfilePage from './ProfilePage';
 import RegisterPage from './RegisterPage';
+import TrucksPage from './TrucksPage';
 
 export {
   FooterContainer,
@@ -12,4 +13,5 @@ export {
   NavbarContainer,
   ProfilePage,
   RegisterPage,
+  TrucksPage,
 };
