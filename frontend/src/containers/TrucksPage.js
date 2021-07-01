@@ -26,7 +26,10 @@ const TrucksPage = () => {
             'https://i.etsystatic.com/13221305/r/il/f228d5/1940501636/il_794xN.1940501636_37rq.jpg';
 
           return (
-            <div key={uuidv4()} className="my-6">
+            <div
+              key={uuidv4()}
+              className="my-6 pt-4 px-4 pb-8 border rounded shadow-md"
+            >
               <div className="w-11/12 mx-auto">
                 <img
                   src={profileImage}
@@ -39,7 +42,7 @@ const TrucksPage = () => {
                 <h3 className="text-2xl text-center">{data.name}</h3>
               </div>
 
-              <div className="mt-4 text-center">
+              <div className="mt-8 text-center">
                 <a
                   href={`/trucks/${data.slug}`}
                   className="border border-solid border-blue-900 text-xl w-full py-2 px-4 rounded-lg shadow-lg text-center hover:border-0 hover:bg-blue-900 hover:text-white focus:outline-none focus:ring-2 focus:ring-blue-300 focus:border-transparent"
